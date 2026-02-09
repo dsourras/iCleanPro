@@ -4,22 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="iCleanPro – Καθαρισμοί βιτρινών, επαγγελματικών χώρων, καταστημάτων, σπιτιών, Airbnb και γενικοί καθαρισμοί. Άμεση εξυπηρέτηση, καθαρό αποτέλεσμα." />
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#0b5fff" />
 
   <title>iCleanPro | Καθαρισμοί Βιτρινών & Χώρων</title>
 
   <style>
     :root{
-      --bg:#070a12;
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --text:#e9eef7;
-      --line:rgba(255,255,255,.08);
-      --brand:#35c6ff;
-      --brand2:#7c5cff;
-      --ok:#35ff9a;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 18px;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:rgba(15,23,42,.12);
+      --card:#ffffff;
+      --bg1:#f7fbff;
+      --bg2:#eef6ff;
+
+      --brand:#0b5fff;
+      --brand2:#1aa7ff;
+      --brandDark:#0847bf;
+
+      --radius:18px;
+      --shadow: 0 14px 40px rgba(2, 6, 23, .08);
     }
 
     *{box-sizing:border-box}
@@ -27,61 +30,77 @@
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 20% 10%, rgba(53,198,255,.15), transparent 60%),
-                  radial-gradient(1000px 600px at 80% 0%, rgba(124,92,255,.14), transparent 55%),
-                  radial-gradient(900px 700px at 50% 90%, rgba(53,255,154,.08), transparent 60%),
-                  var(--bg);
       color:var(--text);
       line-height:1.45;
+
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(26,167,255,.20), transparent 55%),
+        radial-gradient(900px 500px at 85% 0%, rgba(11,95,255,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{
-      max-width:1100px;
+    .container{
+      max-width:1120px;
       margin:0 auto;
-      padding:28px 18px 90px;
+      padding:22px 18px 80px;
     }
 
-    /* Top bar */
-    .topbar{
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      padding:14px 0;
+      backdrop-filter: blur(10px);
+      background: rgba(247,251,255,.72);
+      border-bottom: 1px solid rgba(15,23,42,.06);
+    }
+    .header-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      background: rgba(11,18,32,.55);
-      backdrop-filter: blur(10px);
-      border-radius: 999px;
+      gap:14px;
     }
+
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      font-weight:800;
-      letter-spacing:.2px;
+      gap:12px;
+      min-width: 220px;
     }
-    .logo{
-      width:38px; height:38px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-      display:grid;
-      place-items:center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    .brand img{
+      width:52px;
+      height:52px;
+      border-radius: 14px;
+      object-fit: cover;
+      background:#fff;
+      box-shadow: 0 10px 24px rgba(2,6,23,.10);
+      border:1px solid rgba(15,23,42,.08);
     }
-    .logo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    .brand .name{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      line-height:1.1;
+    }
+    .brand .name strong{
+      font-size:18px;
+      letter-spacing:-0.2px;
+    }
+    .brand .name span{
+      font-size:12.5px;
+      color:var(--muted);
+      font-weight:600;
     }
 
-    .top-actions{
+    .nav-actions{
       display:flex;
-      gap:10px;
       align-items:center;
+      gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
@@ -92,86 +111,69 @@
       gap:10px;
       padding:10px 14px;
       border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      font-weight:700;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      box-shadow: 0 10px 24px rgba(2,6,23,.06);
+      font-weight:800;
       font-size:14px;
+      transition: transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
     }
     .btn:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.14);
+      box-shadow: 0 16px 32px rgba(2,6,23,.08);
     }
     .btn.primary{
-      border: none;
+      border:none;
       background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 16px 40px rgba(53,198,255,.14);
+      color:#fff;
+      box-shadow: 0 16px 40px rgba(11,95,255,.18);
     }
-    .btn.primary:hover{
-      filter: brightness(1.05);
-    }
-    .btn.whatsapp{
-      border: none;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      box-shadow: 0 16px 40px rgba(37,211,102,.12);
-    }
-    .btn.whatsapp:hover{
-      filter: brightness(1.05);
-    }
-    .btn .dot{
-      width:9px; height:9px;
-      border-radius: 50%;
-      background: var(--ok);
-      box-shadow: 0 0 0 4px rgba(53,255,154,.12);
+    .btn.ghost{
+      background: rgba(255,255,255,.7);
     }
 
-    /* Hero layout */
+    /* Hero */
     .hero{
-      margin-top:22px;
-      padding:26px 18px 0;
+      padding:26px 0 0;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.25fr .75fr;
       gap:18px;
       align-items:stretch;
     }
-    @media (max-width: 920px){
-      .hero{grid-template-columns: 1fr; padding:18px 6px 0;}
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
     }
 
     .card{
-      border:1px solid var(--line);
-      background: rgba(11,18,32,.6);
-      backdrop-filter: blur(12px);
+      background: var(--card);
+      border:1px solid rgba(15,23,42,.10);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow:hidden;
     }
 
     .hero-main{
       padding:26px 22px 22px;
-      position:relative;
     }
 
-    .tag{
+    .badge{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:7px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-weight:700;
+      padding:8px 12px;
+      border-radius: 999px;
+      background: rgba(11,95,255,.07);
+      border: 1px solid rgba(11,95,255,.14);
+      color: var(--brandDark);
+      font-weight:900;
       font-size:13px;
     }
 
     h1{
       margin:14px 0 10px;
-      font-size: 42px;
+      font-size:44px;
       line-height:1.05;
-      letter-spacing: -0.6px;
+      letter-spacing:-0.8px;
     }
     @media (max-width: 520px){
       h1{font-size:34px}
@@ -179,9 +181,9 @@
 
     .lead{
       margin:0;
-      color: var(--muted);
+      color:var(--muted);
       font-size:16px;
-      max-width: 60ch;
+      max-width: 65ch;
     }
 
     .hero-cta{
@@ -192,43 +194,38 @@
       align-items:center;
     }
 
-    .mini{
-      margin-top:14px;
+    .features{
+      margin-top:18px;
       display:flex;
-      flex-wrap:wrap;
       gap:10px;
-      color: var(--muted);
-      font-size:14px;
+      flex-wrap:wrap;
     }
     .pill{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      font-weight:600;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.65);
+      font-weight:800;
+      color:#0f172a;
+      font-size:13px;
     }
 
-    .sep{
-      height:1px;
-      background: var(--line);
-      margin:14px 0 0;
-    }
-
+    /* Services */
     .section{
       margin-top:18px;
-      padding:18px;
+      padding:18px 22px 22px;
     }
     .section h2{
-      margin:0 0 8px;
+      margin:0 0 6px;
       font-size:18px;
       letter-spacing:-0.2px;
     }
     .section p{
       margin:0;
-      color: var(--muted);
+      color:var(--muted);
       font-size:14px;
       max-width: 90ch;
     }
@@ -239,158 +236,198 @@
       grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
-    @media (max-width: 920px){
-      .grid{grid-template-columns: 1fr;}
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
     }
+
     .tile{
       padding:16px;
       border-radius: 16px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
+      border:1px solid rgba(15,23,42,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.80));
     }
     .tile h3{
       margin:0 0 6px;
       font-size:15px;
-      letter-spacing:-0.1px;
+      letter-spacing:-0.2px;
     }
     .tile p{
       margin:0;
-      color: var(--muted);
+      color:var(--muted);
       font-size:14px;
     }
 
-    /* Form */
+    /* Contact card */
+    .contact{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .contact h3{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-0.2px;
+    }
+    .contact .small{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+    }
+
     form{
       display:grid;
       gap:10px;
-      margin-top:12px;
+      margin-top:6px;
     }
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      color: var(--text);
-      outline:none;
-      font-size:14px;
-    }
-    textarea{min-height:110px; resize:vertical}
-    input::placeholder, textarea::placeholder{color: rgba(154,164,178,.75)}
-    .form-row{
+    .row{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:10px;
     }
     @media (max-width: 520px){
-      .form-row{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
     }
 
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(15,23,42,.14);
+      background: #fff;
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(11,95,255,.35);
+      box-shadow: 0 0 0 4px rgba(11,95,255,.10);
+    }
+    textarea{min-height:120px; resize:vertical}
+    input::placeholder, textarea::placeholder{color: rgba(71,85,105,.75)}
+
+    .submit{
+      width:100%;
+      justify-content:center;
+      padding:12px 14px;
+      font-size:15px;
+    }
+
+    /* Footer */
     footer{
       margin-top:18px;
       padding:16px 18px;
-      border:1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(11,18,32,.55);
-      color: var(--muted);
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.75);
+      box-shadow: var(--shadow);
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       align-items:center;
       justify-content:space-between;
+      color: var(--muted);
+      font-weight:700;
+    }
+    footer a{
+      text-decoration: underline;
+      text-decoration-color: rgba(15,23,42,.18);
+      text-underline-offset: 3px;
     }
     .footer-links{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
     }
-    .footer-links a{
-      text-decoration: underline;
-      text-decoration-color: rgba(255,255,255,.18);
-      text-underline-offset: 3px;
-    }
 
-    /* Floating WhatsApp button */
+    /* Floating WhatsApp */
     .float-wa{
       position:fixed;
       right:16px;
       bottom:16px;
-      z-index:50;
+      z-index:60;
       padding:12px 14px;
       border-radius: 999px;
       background: linear-gradient(135deg, #25D366, #128C7E);
       color:#fff;
       font-weight:900;
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+      box-shadow: 0 18px 45px rgba(2,6,23,.18);
       border: 1px solid rgba(255,255,255,.15);
     }
     .float-wa:hover{filter: brightness(1.05);}
+
+    /* Small screens: keep header clean */
+    @media (max-width: 520px){
+      .brand{min-width:auto}
+      .brand .name span{display:none}
+      .btn{padding:10px 12px}
+    }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo">
-          <img src="logo111.png" alt="iCleanPro logo">
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="#">
+        <img src="logo111.png" alt="iCleanPro logo">
+        <div class="name">
+          <strong>iCleanPro</strong>
+          <span>Καθαρισμοί Βιτρινών & Χώρων</span>
         </div>
-        <div>iCleanPro</div>
-      </div>
+      </a>
 
-      <div class="top-actions">
-        <a class="btn" href="mailto:icleanpro40@gmail.com">✉️ Email</a>
-        <a class="btn whatsapp" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a class="btn primary" href="tel:+306936897702"><span class="dot"></span> Κάλεσε τώρα</a>
+      <div class="nav-actions">
+        <a class="btn ghost" href="mailto:icleanpro40@gmail.com">✉️ Email</a>
+        <a class="btn ghost" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="btn primary" href="tel:+306936897702">📞 Κάλεσε τώρα</a>
       </div>
     </div>
+  </header>
 
-    <div class="hero">
+  <main class="container">
+
+    <section class="hero">
       <div class="card hero-main">
-        <div class="tag">✨ Καθαρισμοί χώρων • Επαγγελματικό αποτέλεσμα • Άμεση εξυπηρέτηση</div>
+        <div class="badge">🪟 Ειδίκευση σε καθαρισμούς βιτρινών καταστημάτων</div>
 
-        <h1>Καθαρισμοί βιτρινών & χώρων<br/>με καθαρό αποτέλεσμα.</h1>
+        <h1>Καθαρισμοί βιτρινών & χώρων<br>με καθαρό αποτέλεσμα.</h1>
 
         <p class="lead">
-          Η <strong>iCleanPro</strong> αναλαμβάνει καθαρισμούς βιτρινών καταστημάτων,
-          επαγγελματικών χώρων και κατοικιών. Από γρήγορη συντήρηση έως γενικό καθαρισμό,
-          με προσοχή στη λεπτομέρεια και συνέπεια.
+          Η <strong>iCleanPro</strong> αναλαμβάνει καθαρισμούς βιτρινών, επαγγελματικών χώρων,
+          καταστημάτων, σπιτιών, Airbnb και γενικούς καθαρισμούς.
+          Με συνέπεια, προσοχή στη λεπτομέρεια και σωστή εικόνα του χώρου.
         </p>
 
         <div class="hero-cta">
           <a class="btn primary" href="tel:+306936897702">📞 6936 897702</a>
-          <a class="btn whatsapp" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
           <a class="btn" href="mailto:icleanpro40@gmail.com">📩 icleanpro40@gmail.com</a>
         </div>
 
-        <div class="mini">
-          <div class="pill">🪟 Ειδίκευση σε βιτρίνες</div>
-          <div class="pill">🧼 Καθαρό αποτέλεσμα</div>
+        <div class="features">
+          <div class="pill">✨ Καθαρό αποτέλεσμα</div>
           <div class="pill">⏱️ Γρήγορη εξυπηρέτηση</div>
-        </div>
-
-        <div class="sep"></div>
-
-        <div class="section" style="padding:16px 0 0; border:none; background:none;">
-          <h2>Τι αναλαμβάνουμε</h2>
+          <div class="pill">🧼 Γενικοί καθαρισμοί</div>
+      
+          <div class="section" style="margin-top:18px; padding:0; border:none; background:none;">
+          <h2>Υπηρεσίες</h2>
           <p>
-            Από μικρούς επαγγελματικούς χώρους μέχρι απαιτητικούς γενικούς καθαρισμούς.
-            Δουλεύουμε με στόχο το καθαρό αποτέλεσμα και τη σωστή εικόνα του χώρου.
+            Αναλαμβάνουμε καθαρισμούς για κάθε τύπο χώρου, με στόχο το επαγγελματικό αποτέλεσμα.
           </p>
 
           <div class="grid">
             <div class="tile">
               <h3>🪟 Καθαρισμός βιτρινών</h3>
-              <p>Η βασική μας δραστηριότητα. Καθαρή βιτρίνα, σωστή εικόνα, επαγγελματικό αποτέλεσμα.</p>
+              <p>Η βασική μας δραστηριότητα. Καθαρή βιτρίνα = καλύτερη εικόνα για το κατάστημά σου.</p>
             </div>
             <div class="tile">
               <h3>🏬 Καταστήματα & επαγγελματικοί χώροι</h3>
-              <p>Καθαρισμοί σε μαγαζιά, γραφεία, αποθήκες και χώρους εργασίας.</p>
+              <p>Καθαρισμοί σε μαγαζιά, γραφεία, χώρους εργασίας και επαγγελματικές εγκαταστάσεις.</p>
             </div>
             <div class="tile">
               <h3>🏠 Σπίτια & γενικοί καθαρισμοί</h3>
-              <p>Γενικός καθαρισμός, συντήρηση, πριν/μετά από μετακόμιση ή ανακαίνιση.</p>
+              <p>Συντήρηση, γενικός καθαρισμός, πριν/μετά από μετακόμιση ή ανακαίνιση.</p>
             </div>
             <div class="tile">
               <h3>🧳 Airbnb & βραχυχρόνια μίσθωση</h3>
@@ -398,24 +435,24 @@
             </div>
             <div class="tile">
               <h3>📦 Αποθήκες & βοηθητικοί χώροι</h3>
-              <p>Καθαρισμός σε δύσκολους χώρους, με οργάνωση και σωστή εκτέλεση.</p>
+              <p>Καθαρισμός σε δύσκολους χώρους, με σωστή οργάνωση και εκτέλεση.</p>
             </div>
             <div class="tile">
               <h3>✨ Ό,τι χρειάζεται ο χώρος σου</h3>
-              <p>Αν δεν το βλέπεις στη λίστα, απλά επικοινώνησε. Θα σου πούμε άμεσα τι γίνεται.</p>
+              <p>Αν δεν το βλέπεις στη λίστα, επικοινώνησε και θα σου πούμε άμεσα τι γίνεται.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="card hero-side" style="padding:18px;">
-        <p style="font-weight:900; margin:0; font-size:16px;">Ζήτησε καθαρισμό</p>
-        <p style="margin:8px 0 0; color: var(--muted); font-size:14px;">
+      <aside class="card contact" id="contact">
+        <h3>Ζήτησε καθαρισμό</h3>
+        <p class="small">
           Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε άμεσα.
         </p>
 
         <form action="https://formspree.io/f/xvzbglbe" method="POST">
-          <div class="form-row">
+          <div class="row">
             <input name="name" type="text" placeholder="Ονοματεπώνυμο" required />
             <input name="phone" type="tel" placeholder="Τηλέφωνο" required />
           </div>
@@ -424,23 +461,23 @@
 
           <textarea name="message" placeholder="Τι καθαρισμό χρειάζεστε; (βιτρίνα, σπίτι, κατάστημα, Airbnb κλπ)" required></textarea>
 
-          <button class="btn primary" type="submit" style="justify-content:center; padding:12px 14px;">
-            <span class="dot"></span> Αποστολή αιτήματος
-          </button>
+          <button class="btn primary submit" type="submit">Αποστολή</button>
 
-          <a class="btn whatsapp" href="https://wa.me/306936897702" target="_blank" rel="noopener" style="justify-content:center; padding:12px 14px;">
-            💬 Στείλε WhatsApp
-          </a>
-
-          <p style="margin:0; color: var(--muted); font-size:12px;">
+          <p class="small" style="margin:0;">
             *Η φόρμα στέλνει το μήνυμα στο email σου. Αν δεν έρθει, τσέκαρε Spam/Promotions.
           </p>
         </form>
-      </div>
-    </div>
+
+        <div style="display:grid; gap:10px;">
+          <a class="btn" href="tel:+306936897702" style="justify-content:center;">📞 Κλήση</a>
+          <a class="btn" href="mailto:icleanpro40@gmail.com" style="justify-content:center;">✉️ Email</a>
+          <a class="btn" href="https://wa.me/306936897702" target="_blank" rel="noopener" style="justify-content:center;">💬 WhatsApp</a>
+        </div>
+      </aside>
+    </section>
 
     <footer>
-      <div>© <span id="year"></span> iCleanPro — Καθαρισμοί Βιτρινών & Χώρων</div>
+      <div>© <span id="year"></span> iCleanPro</div>
       <div class="footer-links">
         <a href="tel:+306936897702">Κλήση</a>
         <a href="https://wa.me/306936897702" target="_blank" rel="noopener">WhatsApp</a>
@@ -448,7 +485,7 @@
       </div>
     </footer>
 
-  </div>
+  </main>
 
   <a class="float-wa" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
 
