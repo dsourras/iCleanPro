@@ -3,491 +3,839 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="iCleanPro – Καθαρισμοί βιτρινών, επαγγελματικών χώρων, καταστημάτων, σπιτιών, Airbnb και γενικοί καθαρισμοί. Άμεση εξυπηρέτηση, καθαρό αποτέλεσμα." />
-  <meta name="theme-color" content="#0b5fff" />
+  <meta name="description" content="iCleanPro – Professional Cleaning Services. Καθαρισμοί βιτρινών, επαγγελματικών χώρων, καταστημάτων, σπιτιών, Airbnb και γενικοί καθαρισμοί. Άμεση εξυπηρέτηση και επαγγελματικό αποτέλεσμα." />
+  <meta name="theme-color" content="#0b4aa8" />
 
-  <title>iCleanPro | Καθαρισμοί Βιτρινών & Χώρων</title>
+  <title>iCleanPro | Professional Cleaning Services</title>
 
   <style>
     :root{
-      --text:#0f172a;
-      --muted:#475569;
+      --blue-900:#071a3a;
+      --blue-800:#0b2a66;
+      --blue-700:#0b4aa8;
+      --blue-600:#1565d8;
+      --blue-500:#2a7df7;
+
+      --sky-50:#f3f9ff;
+      --sky-100:#e8f3ff;
+      --sky-200:#d9ebff;
+
+      --text:#0b1220;
+      --muted:#4b5563;
       --line:rgba(15,23,42,.12);
+
       --card:#ffffff;
-      --bg1:#f7fbff;
-      --bg2:#eef6ff;
+      --shadow: 0 18px 55px rgba(2, 6, 23, .10);
+      --shadow-soft: 0 10px 30px rgba(2, 6, 23, .08);
 
-      --brand:#0b5fff;
-      --brand2:#1aa7ff;
-      --brandDark:#0847bf;
+      --radius-xl: 22px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 12px;
 
-      --radius:18px;
-      --shadow: 0 14px 40px rgba(2, 6, 23, .08);
+      --container: 1120px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
-      line-height:1.45;
-
       background:
-        radial-gradient(900px 500px at 15% 0%, rgba(26,167,255,.20), transparent 55%),
-        radial-gradient(900px 500px at 85% 0%, rgba(11,95,255,.14), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+        radial-gradient(1200px 600px at 15% 0%, rgba(42,125,247,.20), transparent 55%),
+        radial-gradient(1000px 700px at 85% 10%, rgba(21,101,216,.14), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--sky-50) 40%, #ffffff 100%);
+      line-height:1.45;
     }
 
     a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto}
+
     .container{
-      max-width:1120px;
-      margin:0 auto;
-      padding:22px 18px 80px;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 18px;
     }
 
     /* Header */
     header{
-      position:sticky;
+      position: sticky;
       top:0;
-      z-index:50;
-      padding:14px 0;
-      backdrop-filter: blur(10px);
-      background: rgba(247,251,255,.72);
+      z-index: 50;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(15,23,42,.06);
     }
-    .header-inner{
-      max-width:1120px;
-      margin:0 auto;
-      padding:0 18px;
+
+    .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
+      padding: 14px 0;
     }
 
+    /* LOGO (ορθογώνιο, μεγάλο, δεν κόβεται) */
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:14px;
       min-width: 220px;
     }
-    .brand img{
-  height: 78px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-    .brand .name{
+
+    .brand-logo{
       display:flex;
-      flex-direction:column;
-      gap:2px;
-      line-height:1.1;
-    }
-    .brand .name strong{
-      font-size:18px;
-      letter-spacing:-0.2px;
-    }
-    .brand .name span{
-      font-size:12.5px;
-      color:var(--muted);
-      font-weight:600;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadow-soft);
     }
 
-    .nav-actions{
+    .brand-logo img{
+      height: 56px;     /* ΜΕΓΑΛΟ LOGO */
+      width: auto;
+      object-fit: contain;
+      display:block;
+    }
+
+    /* δε γράφουμε όνομα δίπλα */
+    .brand-name{display:none}
+
+    .nav-links{
       display:flex;
       align-items:center;
       gap:10px;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
       justify-content:flex-end;
     }
 
-    .btn{
+    .chip{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:10px 14px;
+      padding: 10px 14px;
       border-radius: 999px;
-      border:1px solid rgba(15,23,42,.12);
-      background:#fff;
-      box-shadow: 0 10px 24px rgba(2,6,23,.06);
-      font-weight:800;
-      font-size:14px;
-      transition: transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap;
+      background: #fff;
+      border: 1px solid rgba(15,23,42,.10);
+      box-shadow: 0 10px 25px rgba(2,6,23,.06);
+      font-weight: 700;
+      color: #0b1220;
+      transition: transform .15s ease, box-shadow .15s ease;
+      white-space: nowrap;
     }
-    .btn:hover{
+    .chip:hover{
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(2,6,23,.08);
+      box-shadow: 0 16px 35px rgba(2,6,23,.10);
     }
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
+
+    .chip svg{width:18px; height:18px}
+
+    .chip.primary{
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
       color:#fff;
-      box-shadow: 0 16px 40px rgba(11,95,255,.18);
+      border: none;
     }
-    .btn.ghost{
-      background: rgba(255,255,255,.7);
+
+    .chip.whatsapp{
+      background: #ffffff;
+    }
+
+    .chip.email{
+      background:#ffffff;
     }
 
     /* Hero */
     .hero{
-      padding:26px 0 0;
+      padding: 28px 0 18px;
+    }
+
+    .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: start;
     }
 
-    .card{
-      background: var(--card);
-      border:1px solid rgba(15,23,42,.10);
-      border-radius: var(--radius);
+    .hero-card{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-    }
-
-    .hero-main{
-      padding:26px 22px 22px;
+      padding: 22px;
+      overflow:hidden;
+      position:relative;
     }
 
     .badge{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:8px 12px;
+      padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(11,95,255,.07);
-      border: 1px solid rgba(11,95,255,.14);
-      color: var(--brandDark);
-      font-weight:900;
-      font-size:13px;
+      background: linear-gradient(180deg, #ffffff, #f7fbff);
+      border: 1px solid rgba(21,101,216,.16);
+      font-weight: 800;
+      color: var(--blue-800);
+      margin-bottom: 14px;
     }
 
+    .badge svg{width:18px;height:18px}
+
     h1{
-      margin:14px 0 10px;
-      font-size:44px;
-      line-height:1.05;
-      letter-spacing:-0.8px;
-    }
-    @media (max-width: 520px){
-      h1{font-size:34px}
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.05;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+      color: #071a3a;
     }
 
     .lead{
       margin:0;
-      color:var(--muted);
-      font-size:16px;
-      max-width: 65ch;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 62ch;
     }
 
-    .hero-cta{
-      margin-top:18px;
+    .hero-actions{
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn{
+      display:inline-flex;
       align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.12);
+      background:#fff;
+      font-weight: 800;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 12px 30px rgba(2,6,23,.06);
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(2,6,23,.10);
+    }
+    .btn.primary{
+      border:none;
+      color:#fff;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
     }
 
-    .features{
-      margin-top:18px;
+    .btn svg{width:18px;height:18px}
+
+    .mini-points{
       display:flex;
+      flex-wrap: wrap;
       gap:10px;
-      flex-wrap:wrap;
+      margin-top: 16px;
     }
-    .pill{
+
+    .mini{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:10px 12px;
+      padding: 10px 12px;
       border-radius: 999px;
-      border:1px solid rgba(15,23,42,.10);
-      background: rgba(255,255,255,.65);
-      font-weight:800;
-      color:#0f172a;
-      font-size:13px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(15,23,42,.10);
+      font-weight: 700;
+      color: #0b1220;
     }
-
-    /* Services */
-    .section{
-      margin-top:18px;
-      padding:18px 22px 22px;
-    }
-    .section h2{
-      margin:0 0 6px;
-      font-size:18px;
-      letter-spacing:-0.2px;
-    }
-    .section p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      max-width: 90ch;
-    }
-
-    .grid{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    .tile{
-      padding:16px;
-      border-radius: 16px;
-      border:1px solid rgba(15,23,42,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.80));
-    }
-    .tile h3{
-      margin:0 0 6px;
-      font-size:15px;
-      letter-spacing:-0.2px;
-    }
-    .tile p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
+    .mini svg{width:16px;height:16px}
 
     /* Contact card */
-    .contact{
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    .contact-card h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      color: #071a3a;
+      letter-spacing: -0.01em;
     }
-    .contact h3{
-      margin:0;
-      font-size:16px;
-      letter-spacing:-0.2px;
-    }
-    .contact .small{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
+
+    .contact-card p{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     form{
       display:grid;
       gap:10px;
-      margin-top:6px;
     }
+
     .row{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:10px;
     }
-    @media (max-width: 520px){
-      .row{grid-template-columns:1fr}
-    }
 
     input, textarea{
       width:100%;
-      padding:12px 12px;
+      padding: 12px 12px;
       border-radius: 14px;
-      border:1px solid rgba(15,23,42,.14);
-      background: #fff;
-      color:var(--text);
-      outline:none;
-      font-size:14px;
+      border: 1px solid rgba(15,23,42,.14);
+      background: #ffffff;
+      font-size: 14px;
+      outline: none;
+      transition: box-shadow .15s ease, border-color .15s ease;
     }
+
     input:focus, textarea:focus{
-      border-color: rgba(11,95,255,.35);
-      box-shadow: 0 0 0 4px rgba(11,95,255,.10);
+      border-color: rgba(21,101,216,.35);
+      box-shadow: 0 0 0 4px rgba(42,125,247,.12);
     }
-    textarea{min-height:120px; resize:vertical}
-    input::placeholder, textarea::placeholder{color: rgba(71,85,105,.75)}
+
+    textarea{
+      min-height: 120px;
+      resize: vertical;
+    }
 
     .submit{
       width:100%;
-      justify-content:center;
-      padding:12px 14px;
-      font-size:15px;
+      border:none;
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-weight: 900;
+      font-size: 15px;
+      color:#fff;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+      cursor:pointer;
+      box-shadow: 0 18px 45px rgba(21,101,216,.20);
+      transition: transform .15s ease, box-shadow .15s ease;
     }
+    .submit:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 24px 60px rgba(21,101,216,.24);
+    }
+
+    .small-note{
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: rgba(15,23,42,.62);
+    }
+
+    /* Sections */
+    section{
+      padding: 16px 0;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .section-title h3{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      color:#071a3a;
+    }
+
+    .section-title p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 70ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .card{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+    }
+
+    .card h4{
+      margin:0 0 8px;
+      font-size: 16px;
+      color:#071a3a;
+      letter-spacing: -0.01em;
+    }
+
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .icon{
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg, #ffffff, #f4f9ff);
+      border: 1px solid rgba(21,101,216,.14);
+      margin-bottom: 10px;
+    }
+    .icon svg{width:20px;height:20px;color:var(--blue-700)}
+
+    /* App section */
+    .app-wrap{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .app-big h3{
+      margin:0 0 10px;
+      font-size: 22px;
+      color:#071a3a;
+      letter-spacing: -0.01em;
+    }
+
+    .app-big p{
+      margin:0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 75ch;
+    }
+
+    .store-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .store{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,.12);
+      background:#fff;
+      box-shadow: 0 12px 30px rgba(2,6,23,.06);
+      font-weight: 900;
+    }
+    .store span{
+      font-weight: 700;
+      color: rgba(15,23,42,.72);
+    }
+    .store svg{width:20px;height:20px}
+
+    .app-side{
+      background: linear-gradient(180deg, #ffffff, #f7fbff);
+      border: 1px solid rgba(21,101,216,.14);
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap:10px;
+    }
+
+    .list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color: rgba(15,23,42,.74);
+      font-size: 14px;
+    }
+
+    .tick{
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(42,125,247,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid rgba(42,125,247,.18);
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+    .tick svg{width:14px;height:14px;color:var(--blue-700)}
 
     /* Footer */
     footer{
-      margin-top:18px;
-      padding:16px 18px;
-      border-radius: var(--radius);
-      border:1px solid rgba(15,23,42,.10);
-      background: rgba(255,255,255,.75);
-      box-shadow: var(--shadow);
+      padding: 26px 0 30px;
+      margin-top: 10px;
+    }
+
+    .foot{
       display:flex;
-      flex-wrap:wrap;
-      gap:10px;
       align-items:center;
       justify-content:space-between;
-      color: var(--muted);
-      font-weight:700;
-    }
-    footer a{
-      text-decoration: underline;
-      text-decoration-color: rgba(15,23,42,.18);
-      text-underline-offset: 3px;
-    }
-    .footer-links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: rgba(15,23,42,.60);
+      font-size: 13px;
     }
 
-    /* Floating WhatsApp */
-    .float-wa{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      z-index:60;
-      padding:12px 14px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color:#fff;
-      font-weight:900;
-      box-shadow: 0 18px 45px rgba(2,6,23,.18);
-      border: 1px solid rgba(255,255,255,.15);
+    .foot a{
+      font-weight: 800;
+      color: var(--blue-700);
     }
-    .float-wa:hover{filter: brightness(1.05);}
 
-    /* Small screens: keep header clean */
-    @media (max-width: 520px){
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      .app-wrap{grid-template-columns: 1fr}
       .brand{min-width:auto}
-      .brand .name span{display:none}
-      .btn{padding:10px 12px}
+      .brand-logo img{height: 54px}
+    }
+
+    @media (max-width: 420px){
+      .row{grid-template-columns: 1fr}
+      .brand-logo img{height: 52px}
+      .chip{padding: 10px 12px}
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="header-inner">
-      <a class="brand" href="#">
-        <img src="logo111.png" alt="iCleanPro logo">
-        <div class="name">
-          <strong>iCleanPro</strong>
-          <span>Καθαρισμοί Βιτρινών & Χώρων</span>
+<header>
+  <div class="container">
+    <div class="nav">
+      <!-- ΜΟΝΟ LOGO (χωρίς όνομα δίπλα) -->
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="logo111.png" alt="iCleanPro logo">
         </div>
-      </a>
+      </div>
 
-      <div class="nav-actions">
-        <a class="btn ghost" href="mailto:icleanpro40@gmail.com">✉️ Email</a>
-        <a class="btn ghost" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a class="btn primary" href="tel:+306936897702">📞 Κάλεσε τώρα</a>
+      <!-- ΕΠΑΓΓΕΛΜΑΤΙΚΑ CTA -->
+      <div class="nav-links">
+        <a class="chip email" href="mailto:icleanpro40@gmail.com" aria-label="Στείλε email">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="2"/>
+            <path d="m6 8 6 5 6-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </a>
+
+        <a class="chip whatsapp" href="https://wa.me/306936897702" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 21a9 9 0 0 1-4.06-.98L3 21l1.05-3.77A9 9 0 1 1 12 21Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9.2 8.7c.2-.5.4-.6.7-.6h.6c.2 0 .4.1.5.3l.8 1.9c.1.2.1.5-.1.7l-.5.6c-.2.2-.2.5 0 .8.5.9 1.4 1.8 2.3 2.3.3.2.6.2.8 0l.6-.5c.2-.2.5-.2.7-.1l1.9.8c.2.1.3.3.3.5v.6c0 .3-.1.5-.6.7-.6.2-2.1.7-4.8-.8-2.6-1.5-4.3-4.8-4.3-5.3 0-.5.4-2 .6-2.4Z" fill="currentColor"/>
+          </svg>
+          WhatsApp
+        </a>
+
+        <a class="chip primary" href="tel:+306936897702" aria-label="Κάλεσε τώρα">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7.5 3h2l1.1 5.2-1.7 1.7a14.2 14.2 0 0 0 5.2 5.2l1.7-1.7L21 14.5v2c0 1.1-.9 2-2 2-9.4 0-17-7.6-17-17 0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Κάλεσε τώρα
+        </a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="container">
+<main>
 
-    <section class="hero">
-      <div class="card hero-main">
-        <div class="badge">🪟 Ειδίκευση σε καθαρισμούς βιτρινών καταστημάτων</div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
 
-        <h1>Καθαρισμοί βιτρινών & χώρων<br>με καθαρό αποτέλεσμα.</h1>
+        <!-- Left -->
+        <div class="hero-card">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2 14.3 8l6.2.7-4.7 4 1.4 6-5.2-3.2-5.2 3.2 1.4-6-4.7-4L9.7 8 12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            Ειδίκευση σε καθαρισμούς βιτρινών & επαγγελματικών χώρων
+          </div>
 
-        <p class="lead">
-          Η <strong>iCleanPro</strong> αναλαμβάνει καθαρισμούς βιτρινών, επαγγελματικών χώρων,
-          καταστημάτων, σπιτιών, Airbnb και γενικούς καθαρισμούς.
-          Με συνέπεια, προσοχή στη λεπτομέρεια και σωστή εικόνα του χώρου.
-        </p>
+          <h1>Καθαρισμοί βιτρινών & χώρων με επαγγελματικό αποτέλεσμα.</h1>
 
-        <div class="hero-cta">
-          <a class="btn primary" href="tel:+306936897702">📞 6936 897702</a>
-          <a class="btn" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
-          <a class="btn" href="mailto:icleanpro40@gmail.com">📩 icleanpro40@gmail.com</a>
+          <p class="lead">
+            Η <strong>iCleanPro</strong> αναλαμβάνει καθαρισμούς βιτρινών καταστημάτων, επαγγελματικών χώρων,
+            κατοικιών, Airbnb, αποθηκών και γενικούς καθαρισμούς. Δίνουμε έμφαση στη λεπτομέρεια, στη συνέπεια
+            και στο τελικό αποτέλεσμα που φαίνεται.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="tel:+306936897702">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7.5 3h2l1.1 5.2-1.7 1.7a14.2 14.2 0 0 0 5.2 5.2l1.7-1.7L21 14.5v2c0 1.1-.9 2-2 2-9.4 0-17-7.6-17-17 0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              Άμεση κλήση
+            </a>
+
+            <a class="btn" href="https://wa.me/306936897702" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 21a9 9 0 0 1-4.06-.98L3 21l1.05-3.77A9 9 0 1 1 12 21Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M9.2 8.7c.2-.5.4-.6.7-.6h.6c.2 0 .4.1.5.3l.8 1.9c.1.2.1.5-.1.7l-.5.6c-.2.2-.2.5 0 .8.5.9 1.4 1.8 2.3 2.3.3.2.6.2.8 0l.6-.5c.2-.2.5-.2.7-.1l1.9.8c.2.1.3.3.3.5v.6c0 .3-.1.5-.6.7-.6.2-2.1.7-4.8-.8-2.6-1.5-4.3-4.8-4.3-5.3 0-.5.4-2 .6-2.4Z" fill="currentColor"/>
+              </svg>
+              WhatsApp
+            </a>
+
+            <a class="btn" href="mailto:icleanpro40@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="2"/>
+                <path d="m6 8 6 5 6-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Email
+            </a>
+          </div>
+
+          <div class="mini-points">
+            <div class="mini">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Καθαρό αποτέλεσμα που φαίνεται
+            </div>
+
+            <div class="mini">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Γρήγορη εξυπηρέτηση
+            </div>
+
+            <div class="mini">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Επαγγελματισμός & συνέπεια
+            </div>
+          </div>
         </div>
 
-        <div class="features">
-          <div class="pill">✨ Καθαρό αποτέλεσμα</div>
-          <div class="pill">⏱️ Γρήγορη εξυπηρέτηση</div>
-          <div class="pill">🧼 Γενικοί καθαρισμοί</div>
-      
-          <div class="section" style="margin-top:18px; padding:0; border:none; background:none;">
-          <h2>Υπηρεσίες</h2>
+        <!-- Right: Contact -->
+        <div class="hero-card contact-card">
+          <h2>Στείλε μας μήνυμα</h2>
+          <p>Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε άμεσα.</p>
+
+          <form action="https://formspree.io/f/xvzbglbe" method="POST">
+            <div class="row">
+              <input type="text" name="name" placeholder="Ονοματεπώνυμο" required />
+              <input type="tel" name="phone" placeholder="Τηλέφωνο" />
+            </div>
+
+            <input type="email" name="email" placeholder="Email (προαιρετικό)" />
+
+            <textarea name="message" placeholder="Πες μας τι χρειάζεσαι (βιτρίνα, κατάστημα, σπίτι, Airbnb, γενικός καθαρισμός κλπ.)" required></textarea>
+
+            <button class="submit" type="submit">Αποστολή</button>
+          </form>
+
+          <p class="small-note">
+            * Η αποστολή γίνεται μέσω email. Αν δεν το λάβεις, έλεγξε Spam/Promotions.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Υπηρεσίες</h3>
+          <p>Από καθημερινούς καθαρισμούς βιτρινών έως απαιτητικούς γενικούς καθαρισμούς χώρων.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h4>Καθαρισμός βιτρινών</h4>
+          <p>Η βασική μας ειδίκευση. Καθαρή βιτρίνα, σωστή εικόνα και επαγγελματικό αποτέλεσμα.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 21V10l8-6 8 6v11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 21v-8h6v8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h4>Σπίτια & κατοικίες</h4>
+          <p>Καθαρισμός σπιτιού, πριν/μετά μετακόμιση ή περιοδικός καθαρισμός με λεπτομέρεια.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 21h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 21V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v14" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 9h4M10 13h4M10 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Καταστήματα & επαγγελματικοί χώροι</h4>
+          <p>Καθαρισμός χώρων εργασίας με στόχο την εικόνα της επιχείρησης και την υγιεινή.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 7v14h12V7" stroke="currentColor" stroke-width="2"/>
+              <path d="M9 3h6v4H9V3Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h4>Airbnb & βραχυχρόνια μίσθωση</h4>
+          <p>Γρήγορη και προσεγμένη προετοιμασία χώρου, ώστε να είναι έτοιμος για επισκέπτες.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 12V5h12v7" stroke="currentColor" stroke-width="2"/>
+              <path d="M7 21h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 21v-4h6v4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h4>Αποθήκες & βοηθητικοί χώροι</h4>
+          <p>Καθαρισμός αποθήκης ή χώρων με σκόνη/ρύπους, με σωστή εκτέλεση και ασφάλεια.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2v20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M5 9h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 14h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Γενικοί καθαρισμοί</h4>
+          <p>Για απαιτητικές περιπτώσεις: βαθύς καθαρισμός, λεπτομέρεια και τελικό αποτέλεσμα.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <section>
+    <div class="container">
+      <div class="app-wrap">
+        <div class="card app-big">
+          <h3>Η νέα εφαρμογή: eClean Pro</h3>
           <p>
-            Αναλαμβάνουμε καθαρισμούς για κάθε τύπο χώρου, με στόχο το επαγγελματικό αποτέλεσμα.
+            Η <strong>eClean Pro</strong> είναι η εφαρμογή μέσω της οποίας θα γίνονται όλα τα αιτήματα καθαρισμού
+            με εύκολο και οργανωμένο τρόπο. Μέσα από την εφαρμογή ο πελάτης θα μπορεί να ζητά καθαρισμό χώρου,
+            να επιλέγει υπηρεσία, να βλέπει διαθεσιμότητα, αλλά και να επιλέγει <strong>συνδρομητικά πλάνα</strong>
+            για σταθερή εξυπηρέτηση.
+          </p>
+          <p>
+            Η εφαρμογή θα είναι διαθέσιμη για <strong>Android (Google Play)</strong> και <strong>iOS</strong>.
           </p>
 
-          <div class="grid">
-            <div class="tile">
-              <h3>🪟 Καθαρισμός βιτρινών</h3>
-              <p>Η βασική μας δραστηριότητα. Καθαρή βιτρίνα = καλύτερη εικόνα για το κατάστημά σου.</p>
+          <div class="store-row">
+            <div class="store" title="Play Store (θα προστεθεί)">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 3l13 9-13 9V3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              Play Store <span>(σύντομα)</span>
             </div>
-            <div class="tile">
-              <h3>🏬 Καταστήματα & επαγγελματικοί χώροι</h3>
-              <p>Καθαρισμοί σε μαγαζιά, γραφεία, χώρους εργασίας και επαγγελματικές εγκαταστάσεις.</p>
-            </div>
-            <div class="tile">
-              <h3>🏠 Σπίτια & γενικοί καθαρισμοί</h3>
-              <p>Συντήρηση, γενικός καθαρισμός, πριν/μετά από μετακόμιση ή ανακαίνιση.</p>
-            </div>
-            <div class="tile">
-              <h3>🧳 Airbnb & βραχυχρόνια μίσθωση</h3>
-              <p>Καθαρισμός και προετοιμασία χώρου για check-in, με συνέπεια.</p>
-            </div>
-            <div class="tile">
-              <h3>📦 Αποθήκες & βοηθητικοί χώροι</h3>
-              <p>Καθαρισμός σε δύσκολους χώρους, με σωστή οργάνωση και εκτέλεση.</p>
-            </div>
-            <div class="tile">
-              <h3>✨ Ό,τι χρειάζεται ο χώρος σου</h3>
-              <p>Αν δεν το βλέπεις στη λίστα, επικοινώνησε και θα σου πούμε άμεσα τι γίνεται.</p>
+
+            <div class="store" title="iOS (θα προστεθεί)">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M16 13c.2 2.3 2 3 2 3s-1.5 4-4.2 4c-1.2 0-2-.7-3-.7s-1.8.7-3 .7C5 20 3 16.6 3 13c0-3 1.8-5 4-5 1.1 0 2 .7 3 .7s1.7-.7 3-.7c1 0 2 .4 2.8 1.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 3c-.8 1.2-1 2.7-.8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              iOS <span>(σύντομα)</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <aside class="card contact" id="contact">
-        <h3>Ζήτησε καθαρισμό</h3>
-        <p class="small">
-          Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε άμεσα.
-        </p>
-
-        <form action="https://formspree.io/f/xvzbglbe" method="POST">
-          <div class="row">
-            <input name="name" type="text" placeholder="Ονοματεπώνυμο" required />
-            <input name="phone" type="tel" placeholder="Τηλέφωνο" required />
-          </div>
-
-          <input name="email" type="email" placeholder="Email (προαιρετικό)" />
-
-          <textarea name="message" placeholder="Τι καθαρισμό χρειάζεστε; (βιτρίνα, σπίτι, κατάστημα, Airbnb κλπ)" required></textarea>
-
-          <button class="btn primary submit" type="submit">Αποστολή</button>
-
-          <p class="small" style="margin:0;">
-            *Η φόρμα στέλνει το μήνυμα στο email σου. Αν δεν έρθει, τσέκαρε Spam/Promotions.
+        <div class="card app-side">
+          <h4 style="margin:0 0 8px; color:#071a3a;">Τι θα προσφέρει η εφαρμογή</h4>
+          <p style="margin:0; color:#4b5563; font-size:14px;">
+            Σχεδιασμένη για να κάνει τη διαδικασία πιο γρήγορη και πιο επαγγελματική.
           </p>
-        </form>
 
-        <div style="display:grid; gap:10px;">
-          <a class="btn" href="tel:+306936897702" style="justify-content:center;">📞 Κλήση</a>
-          <a class="btn" href="mailto:icleanpro40@gmail.com" style="justify-content:center;">✉️ Email</a>
-          <a class="btn" href="https://wa.me/306936897702" target="_blank" rel="noopener" style="justify-content:center;">💬 WhatsApp</a>
+          <ul class="list">
+            <li>
+              <div class="tick">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Υποβολή αιτήματος καθαρισμού σε 1 λεπτό
+            </li>
+
+            <li>
+              <div class="tick">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Επιλογή υπηρεσίας (βιτρίνα, κατάστημα, σπίτι, Airbnb κλπ.)
+            </li>
+
+            <li>
+              <div class="tick">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Συνδρομητικά πλάνα για σταθερούς καθαρισμούς
+            </li>
+
+            <li>
+              <div class="tick">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Οργανωμένη εξυπηρέτηση και άμεση επικοινωνία
+            </li>
+          </ul>
         </div>
-      </aside>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> iCleanPro</div>
-      <div class="footer-links">
-        <a href="tel:+306936897702">Κλήση</a>
-        <a href="https://wa.me/306936897702" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="mailto:icleanpro40@gmail.com">Email</a>
       </div>
-    </footer>
+    </div>
+  </section>
 
-  </main>
+</main>
 
-  <a class="float-wa" href="https://wa.me/306936897702" target="_blank" rel="noopener">💬 WhatsApp</a>
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>© <span id="y"></span> iCleanPro – Professional Cleaning Services</div>
+      <div>
+        <a href="tel:+306936897702">6936 897702</a> ·
+        <a href="mailto:icleanpro40@gmail.com">icleanpro40@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
