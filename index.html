@@ -914,20 +914,24 @@
 
 </main>
 
-<footer>
-  <div class="container">
-    <div class="foot">
-      <div>© <span id="y"></span> iCleanPro – Professional Cleaning Services</div>
-      <div>
-        <a href="HTML.html" class="delete-link">
-          Διαγραφή Λογαριασμού
-        </a>
-      </div>
-    </div>
-  </div>
 </footer>
-       
-</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  // μικρό UX: γυρνάει το βελάκι στο FAQ
+  document.querySelectorAll("details").forEach(d => {
+    d.addEventListener("toggle", () => {
+      const chev = d.querySelector(".chev");
+      if(!chev) return;
+      chev.style.transform = d.open ? "rotate(180deg)" : "rotate(0deg)";
+      chev.style.transition = "transform .18s ease";
+    });
+  });
+</script>
+
+</body>
+</html>
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
