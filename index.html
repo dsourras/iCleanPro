@@ -3,942 +3,1389 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="iCleanPro – Professional Cleaning Services. Καθαρισμοί βιτρινών, επαγγελματικών χώρων, καταστημάτων, σπιτιών, Airbnb και γενικοί καθαρισμοί. Άμεση εξυπηρέτηση και επαγγελματικό αποτέλεσμα." />
-  <meta name="theme-color" content="#0b4aa8" />
-
-  <title>iCleanPro | Professional Cleaning Services</title>
+  <meta name="description" content="iCleanPro – Premium professional cleaning services για βιτρίνες, επαγγελματικούς χώρους, κατοικίες, Airbnb και γενικούς καθαρισμούς. Σύγχρονη εξυπηρέτηση, άμεση επικοινωνία και αποτέλεσμα υψηλού επιπέδου." />
+  <meta name="theme-color" content="#0a4fff" />
+  <meta property="og:title" content="iCleanPro | Premium Cleaning Services" />
+  <meta property="og:description" content="Καθαρισμοί βιτρινών, επαγγελματικών χώρων, κατοικιών, Airbnb και γενικοί καθαρισμοί με premium αισθητική και επαγγελματικό αποτέλεσμα." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="preview.jpg" />
+  <title>iCleanPro | Premium Cleaning Services</title>
 
   <style>
     :root{
-      --blue-950:#05122c;
-      --blue-900:#071a3a;
-      --blue-800:#0b2a66;
-      --blue-700:#0b4aa8;
-      --blue-600:#1565d8;
-      --blue-500:#2a7df7;
+      --bg:#07101f;
+      --bg-2:#0a1427;
+      --bg-3:#0d1c35;
+      --surface:rgba(255,255,255,.08);
+      --surface-2:rgba(255,255,255,.05);
+      --surface-3:#ffffff;
+      --line:rgba(255,255,255,.12);
+      --line-strong:rgba(255,255,255,.18);
 
-      --sky-50:#f3f9ff;
-      --sky-100:#eaf4ff;
-      --sky-200:#dbeeff;
+      --text:#f7fbff;
+      --text-soft:rgba(244,248,255,.78);
+      --text-dim:rgba(233,241,255,.58);
+      --ink:#081120;
+      --ink-soft:#4b5b73;
 
-      --text:#0b1220;
-      --muted:#4b5563;
-      --muted2:#64748b;
-      --line:rgba(15,23,42,.12);
+      --blue-1:#dff2ff;
+      --blue-2:#a5d9ff;
+      --blue-3:#67bfff;
+      --blue-4:#2e8fff;
+      --blue-5:#1368ff;
+      --blue-6:#0a4fff;
+      --cyan:#52e3ff;
+      --green:#57f287;
 
-      --card:#ffffff;
-      --shadow: 0 20px 60px rgba(2, 6, 23, .10);
-      --shadow-soft: 0 12px 35px rgba(2, 6, 23, .08);
+      --shadow-xl:0 30px 80px rgba(0,0,0,.28);
+      --shadow-lg:0 18px 55px rgba(0,0,0,.22);
+      --shadow-md:0 12px 35px rgba(0,0,0,.16);
 
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
+      --radius-2xl:30px;
+      --radius-xl:24px;
+      --radius-lg:18px;
+      --radius-md:14px;
 
-      --container: 1140px;
+      --container:1240px;
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;padding:0}
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      min-height:100%;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
-      line-height:1.5;
       background:
-        radial-gradient(1200px 600px at 15% 0%, rgba(42,125,247,.22), transparent 55%),
-        radial-gradient(1000px 700px at 85% 10%, rgba(21,101,216,.16), transparent 55%),
-        linear-gradient(180deg, #ffffff 0%, var(--sky-50) 45%, #ffffff 100%);
+        radial-gradient(900px 500px at 10% -10%, rgba(82,227,255,.18), transparent 55%),
+        radial-gradient(700px 450px at 100% 0%, rgba(19,104,255,.22), transparent 52%),
+        radial-gradient(1100px 700px at 50% 30%, rgba(255,255,255,.03), transparent 60%),
+        linear-gradient(180deg, #040814 0%, #081120 22%, #09172d 60%, #07101f 100%);
+      line-height:1.5;
+      overflow-x:hidden;
     }
 
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; height:auto}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:32px 32px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.45), transparent 70%);
+      opacity:.22;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
     strong{font-weight:900}
 
     .container{
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 18px;
+      width:min(var(--container), calc(100% - 32px));
+      margin:0 auto;
     }
 
-    /* =========================
-       HEADER (ΜΟΝΟ LOGO)
-       ========================= */
+    .blur-orb{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(60px);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .orb-1{width:280px;height:280px;background:rgba(82,227,255,.18);top:60px;left:-80px}
+    .orb-2{width:320px;height:320px;background:rgba(19,104,255,.18);right:-100px;top:180px}
+
     header{
-      position: sticky;
+      position:sticky;
       top:0;
-      z-index: 50;
-      background: rgba(255,255,255,.78);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(15,23,42,.06);
+      z-index:90;
+      backdrop-filter:blur(16px);
+      background:rgba(7,16,31,.58);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
     .nav{
+      min-height:82px;
       display:flex;
       align-items:center;
-      justify-content:center;
-      padding: 14px 0;
+      justify-content:space-between;
+      gap:18px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      justify-content:center;
-      width:100%;
+      gap:14px;
+      min-width:0;
     }
 
-    /* ΤΕΡΑΣΤΙΟ LOGO - ΔΕΝ ΚΟΒΕΤΑΙ */
-    .brand-logo{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 18px;
-      border-radius: 22px;
-      background:#ffffff;
-      border: 1px solid rgba(15,23,42,.08);
-      box-shadow: var(--shadow-soft);
-      max-width: 520px;
-      width: 100%;
-    }
-
-    .brand-logo img{
-      height: 72px; /* desktop */
-      width: auto;
-      object-fit: contain;
-      display:block;
-    }
-
-    /* =========================
-       HERO
-       ========================= */
-    .hero{
-      padding: 26px 0 10px;
-    }
-
-    .hero-grid{
+    .brand-mark{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.12), var(--shadow-md);
       display:grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap: 16px;
-      align-items:start;
+      place-items:center;
+      position:relative;
+      overflow:hidden;
     }
-
-    .panel{
-      background: rgba(255,255,255,.94);
-      border: 1px solid rgba(15,23,42,.08);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 22px;
+    .brand-mark::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(82,227,255,.35), transparent 42%, rgba(19,104,255,.30));
     }
+    .brand-mark svg{width:28px;height:28px;position:relative;z-index:1;color:#fff}
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #ffffff, #f7fbff);
-      border: 1px solid rgba(21,101,216,.16);
-      font-weight: 900;
-      color: var(--blue-800);
-      margin-bottom: 14px;
-    }
+    .brand-text{display:flex;flex-direction:column;line-height:1.05}
+    .brand-text b{font-size:18px;letter-spacing:-.02em}
+    .brand-text span{font-size:12px;color:var(--text-dim);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
-    .badge svg{width:18px;height:18px}
-
-    h1{
-      font-size: clamp(30px, 4.3vw, 50px);
-      line-height: 1.06;
-      margin: 0 0 12px;
-      letter-spacing: -0.02em;
-      color: var(--blue-900);
-    }
-
-    .lead{
-      margin:0;
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 66ch;
-    }
-
-    .hero-actions{
+    .nav-links{
       display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:center;
     }
+
+    .nav-links a{
+      padding:11px 14px;
+      border-radius:999px;
+      color:var(--text-soft);
+      font-weight:800;
+      font-size:14px;
+      transition:.18s ease;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,.08);color:#fff}
+
+    .nav-actions{display:flex;align-items:center;gap:10px}
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(15,23,42,.12);
-      background:#fff;
-      font-weight: 900;
+      border-radius:16px;
+      padding:13px 18px;
+      font-weight:900;
+      font-size:14px;
+      border:1px solid var(--line);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      white-space:nowrap;
       cursor:pointer;
-      transition: transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 12px 30px rgba(2,6,23,.06);
-      white-space: nowrap;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(2,6,23,.10);
-    }
-    .btn.primary{
-      border:none;
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
       color:#fff;
-      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+      border:none;
+      background:linear-gradient(135deg, var(--blue-6), var(--blue-4));
+      box-shadow:0 16px 40px rgba(19,104,255,.34);
     }
-    .btn svg{width:18px;height:18px}
-
-    .mini-points{
-      display:flex;
-      flex-wrap: wrap;
-      gap:10px;
-      margin-top: 16px;
+    .btn-primary:hover{box-shadow:0 20px 50px rgba(19,104,255,.40)}
+    .btn-glass{
+      color:#fff;
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      backdrop-filter:blur(12px);
+    }
+    .btn-white{
+      color:var(--ink);
+      background:#fff;
+      border:1px solid rgba(8,17,32,.08);
+      box-shadow:0 14px 36px rgba(255,255,255,.12);
     }
 
-    .mini{
+    .hero{
+      position:relative;
+      padding:34px 0 32px;
+      overflow:hidden;
+    }
+
+    .hero-shell{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .hero-card,
+    .glass,
+    .metric,
+    .service-card,
+    .feature-card,
+    .step,
+    .testimonial,
+    .faq-item,
+    .cta-panel,
+    .footer-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.11);
+      box-shadow:var(--shadow-lg);
+      backdrop-filter:blur(16px);
+    }
+
+    .hero-card{
+      border-radius:32px;
+      padding:30px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(82,227,255,.12), transparent 32%, rgba(19,104,255,.12));
+      pointer-events:none;
+    }
+
+    .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.9);
-      border: 1px solid rgba(15,23,42,.10);
-      font-weight: 800;
-      color: #0b1220;
-    }
-    .mini svg{width:16px;height:16px}
-
-    /* =========================
-       CONTACT FORM
-       ========================= */
-    .contact h2{
-      margin:0 0 10px;
-      font-size: 18px;
-      color: var(--blue-900);
-      letter-spacing: -0.01em;
-    }
-
-    .contact p{
-      margin:0 0 14px;
-      color: var(--muted2);
-      font-size: 14px;
-    }
-
-    form{display:grid; gap:10px}
-
-    .row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
-
-    input, textarea{
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(15,23,42,.14);
-      background: #ffffff;
-      font-size: 14px;
-      outline: none;
-      transition: box-shadow .15s ease, border-color .15s ease;
-    }
-
-    input:focus, textarea:focus{
-      border-color: rgba(21,101,216,.35);
-      box-shadow: 0 0 0 4px rgba(42,125,247,.12);
-    }
-
-    textarea{
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .submit{
-      width:100%;
-      border:none;
-      border-radius: 14px;
-      padding: 13px 14px;
-      font-weight: 1000;
-      font-size: 15px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.14);
+      font-size:13px;
+      font-weight:900;
       color:#fff;
-      background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
-      cursor:pointer;
-      box-shadow: 0 18px 45px rgba(21,101,216,.20);
-      transition: transform .15s ease, box-shadow .15s ease;
+      margin-bottom:18px;
     }
-    .submit:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 24px 60px rgba(21,101,216,.24);
+    .eyebrow .dot{
+      width:10px;height:10px;border-radius:999px;background:var(--green);
+      box-shadow:0 0 0 6px rgba(87,242,135,.13);
     }
 
-    .small-note{
-      margin: 10px 0 0;
-      font-size: 12px;
-      color: rgba(15,23,42,.62);
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(40px, 6vw, 78px);
+      line-height:.98;
+      letter-spacing:-.045em;
+      max-width:12ch;
     }
 
-    /* =========================
-       SECTIONS
-       ========================= */
-    section{
-      padding: 18px 0;
+    .hero-lead{
+      margin:0;
+      max-width:65ch;
+      color:var(--text-soft);
+      font-size:17px;
     }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .trust-row{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .metric{
+      border-radius:22px;
+      padding:16px 16px 14px;
+    }
+    .metric b{display:block;font-size:28px;line-height:1;letter-spacing:-.03em}
+    .metric span{display:block;margin-top:6px;color:var(--text-dim);font-size:13px;font-weight:700}
+
+    .hero-side{
+      display:grid;
+      grid-template-rows:auto auto;
+      gap:18px;
+    }
+
+    .showcase{
+      border-radius:32px;
+      padding:22px;
+      min-height:100%;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .showcase::after{
+      content:"";
+      position:absolute;
+      inset:auto -40px -60px auto;
+      width:240px;
+      height:240px;
+      border-radius:999px;
+      background:radial-gradient(circle, rgba(82,227,255,.24), transparent 70%);
+      pointer-events:none;
+    }
+
+    .phone-mock{
+      width:min(100%, 380px);
+      margin:0 auto;
+      border-radius:34px;
+      padding:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:var(--shadow-xl);
+    }
+
+    .phone-inner{
+      border-radius:24px;
+      overflow:hidden;
+      background:linear-gradient(180deg, #f7fbff, #edf5ff);
+      color:var(--ink);
+      min-height:540px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .phone-top{
+      padding:18px 18px 12px;
+      background:linear-gradient(180deg, #fdfefe, #eef6ff);
+      border-bottom:1px solid rgba(8,17,32,.08);
+    }
+
+    .phone-pill{
+      width:96px;height:8px;border-radius:999px;background:#0f172a;margin:0 auto 14px;
+      opacity:.7;
+    }
+
+    .phone-title{font-weight:900;font-size:20px;letter-spacing:-.03em}
+    .phone-sub{margin-top:4px;color:#5e6c82;font-size:13px;font-weight:700}
+
+    .clean-preview{
+      padding:16px;
+      display:grid;
+      gap:12px;
+    }
+
+    .preview-box{
+      border-radius:22px;
+      background:#fff;
+      border:1px solid rgba(8,17,32,.08);
+      box-shadow:0 10px 28px rgba(8,17,32,.08);
+      padding:14px;
+    }
+
+    .preview-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .preview-tag{
+      padding:8px 10px;
+      border-radius:999px;
+      background:#eef6ff;
+      color:#0a4fff;
+      font-weight:900;
+      font-size:12px;
+    }
+
+    .preview-line{height:10px;border-radius:999px;background:linear-gradient(90deg,#dbeaff,#edf5ff)}
+    .preview-line + .preview-line{margin-top:8px}
+    .preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+    .contact-panel{
+      border-radius:28px;
+      padding:24px;
+    }
+
+    .section{padding:34px 0}
 
     .section-head{
-      margin-bottom: 12px;
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
     }
 
-    .section-head h3{
-      margin:0 0 6px;
-      font-size: 22px;
-      letter-spacing: -0.01em;
-      color: var(--blue-900);
+    .section-kicker{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--blue-2);
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(28px, 3.6vw, 46px);
+      line-height:1;
+      letter-spacing:-.04em;
     }
 
     .section-head p{
       margin:0;
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 80ch;
+      color:var(--text-soft);
+      max-width:66ch;
+      font-size:15px;
     }
 
-    .grid3{
+    .services-grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
     }
 
-    .card{
-      background: rgba(255,255,255,.94);
-      border: 1px solid rgba(15,23,42,.08);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      padding: 16px;
+    .service-card{
+      border-radius:24px;
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      min-height:220px;
     }
 
-    .card h4{
-      margin:0 0 8px;
-      font-size: 16px;
-      color: var(--blue-900);
-      letter-spacing: -0.01em;
+    .service-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(160deg, rgba(255,255,255,.05), transparent 45%, rgba(82,227,255,.06));
+      pointer-events:none;
     }
 
-    .card p{
+    .icon-wrap{
+      width:54px;height:54px;border-radius:18px;
+      display:grid;place-items:center;
+      margin-bottom:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:var(--shadow-md);
+    }
+    .icon-wrap svg{width:24px;height:24px;color:#fff}
+
+    .service-card h3,
+    .feature-card h3,
+    .testimonial h3,
+    .contact-panel h3,
+    .cta-panel h3,
+    .footer-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .service-card p,
+    .feature-card p,
+    .step p,
+    .testimonial p,
+    .contact-panel p,
+    .footer-card p{
       margin:0;
-      color: var(--muted);
-      font-size: 14px;
+      color:var(--text-soft);
+      font-size:14px;
     }
 
-    .icon{
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
+    .service-foot{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:16px;
       display:flex;
       align-items:center;
-      justify-content:center;
-      background: linear-gradient(180deg, #ffffff, #f4f9ff);
-      border: 1px solid rgba(21,101,216,.14);
-      margin-bottom: 10px;
-    }
-    .icon svg{width:20px;height:20px;color:var(--blue-700)}
-
-    /* =========================
-       WHY US (CORPORATE)
-       ========================= */
-    .why-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 12px;
-      align-items: stretch;
-    }
-
-    .why-big p{
-      margin:0 0 12px;
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 80ch;
-    }
-
-    .list{
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
-      display:grid;
+      justify-content:space-between;
       gap:10px;
     }
 
-    .list li{
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:36px;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:12px;
+      color:#fff;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .premium-band{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:14px;
+    }
+
+    .feature-card,
+    .testimonial,
+    .step,
+    .cta-panel,
+    .footer-card{
+      border-radius:28px;
+      padding:22px;
+    }
+
+    .feature-list,
+    .footer-links,
+    .contact-list,
+    .faq-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .point{
       display:flex;
-      gap:10px;
       align-items:flex-start;
-      color: rgba(15,23,42,.76);
-      font-size: 14px;
+      gap:12px;
     }
 
-    .tick{
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: rgba(42,125,247,.12);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border: 1px solid rgba(42,125,247,.18);
-      flex: 0 0 auto;
-      margin-top: 1px;
+    .point-badge{
+      width:28px;height:28px;border-radius:999px;
+      display:grid;place-items:center;
+      background:rgba(82,227,255,.14);
+      border:1px solid rgba(82,227,255,.20);
+      color:#fff;
+      flex:0 0 auto;
+      margin-top:1px;
     }
-    .tick svg{width:14px;height:14px;color:var(--blue-700)}
+    .point-badge svg{width:16px;height:16px}
 
-    /* =========================
-       APP SECTION
-       ========================= */
-    .app-wrap{
+    .points-grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 12px;
-      align-items: stretch;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
     }
 
-    .store-row{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
+    .process{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
     }
 
-    .store{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(15,23,42,.12);
+    .step{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .step-no{
+      font-size:44px;
+      line-height:1;
+      font-weight:1000;
+      letter-spacing:-.05em;
+      color:rgba(255,255,255,.18);
+      margin-bottom:8px;
+    }
+
+    .stats-strip{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .stat-card{
+      border-radius:24px;
+      padding:20px;
       background:#fff;
-      box-shadow: 0 12px 30px rgba(2,6,23,.06);
-      font-weight: 1000;
+      border:1px solid rgba(8,17,32,.08);
+      box-shadow:0 20px 60px rgba(8,17,32,.10);
+      color:var(--ink);
     }
-    .store span{
-      font-weight: 800;
-      color: rgba(15,23,42,.60);
-    }
-    .store svg{width:20px;height:20px}
+    .stat-card b{display:block;font-size:34px;line-height:1;letter-spacing:-.04em}
+    .stat-card span{display:block;margin-top:8px;color:#617289;font-size:13px;font-weight:800}
 
-    /* =========================
-       FAQ
-       ========================= */
-    details{
-      background: rgba(255,255,255,.94);
-      border: 1px solid rgba(15,23,42,.08);
-      border-radius: 18px;
-      box-shadow: var(--shadow-soft);
-      padding: 14px 14px;
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
     }
 
-    details + details{margin-top: 10px}
+    .stars{display:flex;gap:4px;margin-bottom:12px;color:#7cd3ff}
+    .stars svg{width:16px;height:16px}
+
+    .faq-wrap{
+      display:grid;
+      gap:12px;
+    }
+
+    details.faq-item{
+      border-radius:22px;
+      padding:16px 18px;
+    }
 
     summary{
-      cursor:pointer;
       list-style:none;
-      font-weight: 1000;
-      color: var(--blue-900);
+      cursor:pointer;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 12px;
+      gap:16px;
+      font-weight:900;
+      font-size:17px;
+      letter-spacing:-.02em;
     }
-
     summary::-webkit-details-marker{display:none}
 
+    .faq-answer{
+      margin-top:12px;
+      color:var(--text-soft);
+      font-size:14px;
+      max-width:78ch;
+    }
+
     .chev{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      border: 1px solid rgba(15,23,42,.10);
-      display:flex;
+      width:38px;height:38px;border-radius:14px;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      flex:0 0 auto;
+      transition:transform .18s ease;
+    }
+
+    .cta-panel{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
       align-items:center;
-      justify-content:center;
-      background:#fff;
-      flex: 0 0 auto;
+      overflow:hidden;
+      position:relative;
+    }
+    .cta-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(82,227,255,.10), transparent 40%, rgba(19,104,255,.18));
+      pointer-events:none;
     }
 
-    .faq-text{
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
+    .cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+
+    form{display:grid;gap:12px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    input, textarea{
+      width:100%;
+      border:none;
+      outline:none;
+      border-radius:16px;
+      padding:14px 14px;
+      font-size:14px;
+      font-family:inherit;
+      color:#fff;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.10);
+      transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+    input::placeholder, textarea::placeholder{color:rgba(241,246,255,.52)}
+    input:focus, textarea:focus{
+      border-color:rgba(82,227,255,.45);
+      box-shadow:0 0 0 4px rgba(82,227,255,.10);
+      background:rgba(255,255,255,.09);
+    }
+    textarea{min-height:126px;resize:vertical}
+
+    .submit{
+      min-height:52px;
+      border:none;
+      border-radius:16px;
+      padding:14px 18px;
+      font-size:15px;
+      font-weight:1000;
+      color:#fff;
+      cursor:pointer;
+      background:linear-gradient(135deg, var(--blue-6), var(--blue-4));
+      box-shadow:0 16px 38px rgba(19,104,255,.34);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .submit:hover{transform:translateY(-1px);box-shadow:0 20px 50px rgba(19,104,255,.42)}
+
+    .small-note{font-size:12px;color:var(--text-dim);margin:2px 0 0}
+
+    footer{padding:24px 0 34px}
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:14px;
     }
 
-    /* =========================
-       FOOTER
-       ========================= */
-    footer{
-      padding: 26px 0 30px;
-      margin-top: 10px;
-    }
-
-    .foot{
+    .footer-mini{
+      margin-top:14px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      color: rgba(15,23,42,.60);
-      font-size: 13px;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--text-dim);
+      font-size:13px;
     }
 
-    .foot a{
-      font-weight: 1000;
-      color: var(--blue-700);
+    .footer-links a,
+    .contact-list a{
+      color:#fff;
+      font-weight:800;
     }
 
-    /* =========================
-   DELETE ACCOUNT BUTTON
-   ========================= */
-.delete-link{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:12px;
-  background:#fff;
-  border:1px solid rgba(15,23,42,.12);
-  font-weight:900;
-  color:var(--blue-700);
-  box-shadow:0 8px 25px rgba(2,6,23,.08);
-  transition:all .15s ease;
-}
-
-.delete-link:hover{
-  background:var(--blue-700);
-  color:#fff;
-  transform:translateY(-1px);
-}
-    /* =========================
-       MOBILE
-       ========================= */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
-      .grid3{grid-template-columns: 1fr}
-      .why-grid{grid-template-columns: 1fr}
-      .app-wrap{grid-template-columns: 1fr}
-      .brand-logo{max-width: 560px}
+    .delete-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:900;
+      transition:.18s ease;
+    }
+    .delete-link:hover{
+      transform:translateY(-1px);
+      background:#fff;
+      color:var(--ink);
     }
 
-    @media (max-width: 520px){
-      /* εδώ το κάνουμε ΤΕΡΑΣΤΙΟ στο κινητό */
-      .brand-logo{
-        padding: 12px 16px;
-        border-radius: 22px;
-      }
-      .brand-logo img{
-        height: 84px; /* MOBILE BIG LOGO */
-      }
-      .row{grid-template-columns: 1fr}
-      .panel{padding: 18px}
-      .btn{width: 100%}
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    @media (max-width: 1120px){
+      .hero-shell,
+      .premium-band,
+      .cta-panel,
+      .footer-grid{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .process{grid-template-columns:repeat(2,1fr)}
+      .stats-strip{grid-template-columns:repeat(2,1fr)}
+      .testimonial-grid{grid-template-columns:1fr}
+      .nav{min-height:74px}
+      .nav-links{display:none}
+    }
+
+    @media (max-width: 720px){
+      .hero{padding-top:20px}
+      .hero-card,
+      .showcase,
+      .contact-panel,
+      .feature-card,
+      .testimonial,
+      .step,
+      .cta-panel,
+      .footer-card{padding:18px}
+      .services-grid,
+      .points-grid,
+      .process,
+      .stats-strip,
+      .grid-2,
+      .trust-row{grid-template-columns:1fr}
+      h1{max-width:11ch;font-size:clamp(34px, 12vw, 58px)}
+      .hero-actions .btn,
+      .cta-actions .btn,
+      .nav-actions .btn{width:100%}
+      .nav-actions{display:none}
+      .brand-text span{display:none}
+      .phone-mock{width:100%}
+      .section{padding:24px 0}
+      .service-card{min-height:unset;padding-bottom:70px}
     }
   </style>
 </head>
-
 <body>
-
-<header>
-  <div class="container">
-    <div class="nav">
-      <div class="brand">
-        <div class="brand-logo">
-          <img src="logo111.png" alt="iCleanPro logo">
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <div class="hero">
+  <header>
     <div class="container">
-      <div class="hero-grid">
-
-        <!-- Left -->
-        <div class="panel">
-          <div class="badge">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="iCleanPro home">
+          <div class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2 14.3 8l6.2.7-4.7 4 1.4 6-5.2-3.2-5.2 3.2 1.4-6-4.7-4L9.7 8 12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
-            Ειδίκευση σε βιτρίνες & επαγγελματικούς χώρους
-          </div>
-
-          <h1>Καθαρισμοί βιτρινών & χώρων με επαγγελματικό αποτέλεσμα.</h1>
-
-          <p class="lead">
-            Η <strong>iCleanPro</strong> παρέχει υπηρεσίες καθαρισμού με συνέπεια, προσοχή στη λεπτομέρεια και
-            υψηλά standards. Αναλαμβάνουμε καθαρισμούς βιτρινών, καταστημάτων, επαγγελματικών χώρων,
-            κατοικιών, Airbnb, αποθηκών και γενικούς καθαρισμούς, με στόχο ένα αποτέλεσμα που φαίνεται
-            και αναβαθμίζει την εικόνα του χώρου.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="tel:+306940043938">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M7.5 3h2l1.1 5.2-1.7 1.7a14.2 14.2 0 0 0 5.2 5.2l1.7-1.7L21 14.5v2c0 1.1-.9 2-2 2-9.4 0-17-7.6-17-17 0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              </svg>
-              Κάλεσε τώρα
-            </a>
-
-            <a class="btn" href="https://wa.me/306940043938" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 21a9 9 0 0 1-4.06-.98L3 21l1.05-3.77A9 9 0 1 1 12 21Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M9.2 8.7c.2-.5.4-.6.7-.6h.6c.2 0 .4.1.5.3l.8 1.9c.1.2.1.5-.1.7l-.5.6c-.2.2-.2.5 0 .8.5.9 1.4 1.8 2.3 2.3.3.2.6.2.8 0l.6-.5c.2-.2.5-.2.7-.1l1.9.8c.2.1.3.3.3.5v.6c0 .3-.1.5-.6.7-.6.2-2.1.7-4.8-.8-2.6-1.5-4.3-4.8-4.3-5.3 0-.5.4-2 .6-2.4Z" fill="currentColor"/>
-              </svg>
-              WhatsApp
-            </a>
-
-            <a class="btn" href="mailto:icleanpro40@gmail.com">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="2"/>
-                <path d="m6 8 6 5 6-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Email
-            </a>
-          </div>
-
-          <div class="mini-points">
-            <div class="mini">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Συνέπεια & επαγγελματισμός
-            </div>
-
-            <div class="mini">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              Γρήγορη εξυπηρέτηση
-            </div>
-
-            <div class="mini">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M6 6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M8 18h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              Καθαρό αποτέλεσμα που φαίνεται
-            </div>
-          </div>
-        </div>
-
-        <!-- Right -->
-        <div class="panel contact">
-          <h2>Στείλε μας μήνυμα</h2>
-          <p>Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε άμεσα.</p>
-
-          <form action="https://formspree.io/f/xvzbglbe" method="POST">
-            <div class="row">
-              <input type="text" name="name" placeholder="Ονοματεπώνυμο" required />
-              <input type="tel" name="phone" placeholder="Τηλέφωνο" />
-            </div>
-
-            <input type="email" name="email" placeholder="Email (προαιρετικό)" />
-
-            <textarea name="message" placeholder="Πες μας τι χρειάζεσαι (βιτρίνα, κατάστημα, σπίτι, Airbnb, γενικός καθαρισμός κλπ.)" required></textarea>
-
-            <button class="submit" type="submit">Αποστολή</button>
-          </form>
-
-          <p class="small-note">
-            * Η αποστολή γίνεται μέσω email. Αν δεν το λάβεις, έλεγξε Spam/Promotions.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <h3>Υπηρεσίες</h3>
-        <p>
-          Αναλαμβάνουμε καθαρισμούς σε επαγγελματικούς και ιδιωτικούς χώρους, με προτεραιότητα την εικόνα,
-          την υγιεινή και τη συνέπεια.
-        </p>
-      </div>
-
-      <div class="grid3">
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M6 14c2.5-1.2 3.7-4 4.2-8 3 2 6 4.6 7.6 7.9 1 2.1.6 4.8-1.1 6.1-1.6 1.2-4.1 1.4-6 .4C8 19.1 6 16.8 6 14Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M5 19c3.2-1 5.4-3.2 6.8-6.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h4>Καθαρισμός βιτρινών</h4>
-          <p>Εξειδίκευση σε βιτρίνες καταστημάτων για καθαρή εικόνα και άμεσο επαγγελματικό αποτέλεσμα.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M3 21h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M6 21V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v14" stroke="currentColor" stroke-width="2"/>
-              <path d="M10 9h4M10 13h4M10 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+          <div class="brand-text">
+            <b>iCleanPro</b>
+            <span>Premium Cleaning Services</span>
           </div>
-          <h4>Καταστήματα & επαγγελματικοί χώροι</h4>
-          <p>Καθαρισμός χώρων εργασίας με προσοχή στη λεπτομέρεια και στην εικόνα της επιχείρησης.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 21V10l8-6 8 6v11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M9 21v-8h6v8" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <h4>Σπίτια & κατοικίες</h4>
-          <p>Καθαρισμός σπιτιού, περιοδικός ή πριν/μετά μετακόμιση, με σωστή και οργανωμένη εκτέλεση.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 7h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M6 7v14h12V7" stroke="currentColor" stroke-width="2"/>
-              <path d="M9 3h6v4H9V3Z" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <h4>Airbnb & βραχυχρόνια μίσθωση</h4>
-          <p>Γρήγορη προετοιμασία χώρου με στόχο την άριστη εικόνα και την άμεση παράδοση.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M6 12V5h12v7" stroke="currentColor" stroke-width="2"/>
-              <path d="M7 21h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M9 21v-4h6v4" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <h4>Αποθήκες & βοηθητικοί χώροι</h4>
-          <p>Καθαρισμός αποθηκών και βοηθητικών χώρων με ασφάλεια και σωστή οργάνωση.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M5 9h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 14h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h4>Γενικοί καθαρισμοί</h4>
-          <p>Για απαιτητικές περιπτώσεις: βαθύς καθαρισμός, λεπτομέρεια και άψογο τελικό αποτέλεσμα.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <h3>Γιατί να μας επιλέξετε</h3>
-        <p>
-          Η iCleanPro δεν είναι “ένας ακόμα καθαρισμός”. Είναι υπηρεσία με επαγγελματική νοοτροπία, συνέπεια και
-          αποτέλεσμα που φαίνεται στον χώρο σας.
-        </p>
-      </div>
-
-      <div class="why-grid">
-        <div class="card why-big">
-          <h4 style="margin:0 0 10px; font-size:18px;">Επαγγελματισμός σε κάθε εργασία</h4>
-          <p>
-            Εργαζόμαστε με στόχο την ποιότητα και τη σταθερότητα. Από μια απλή βιτρίνα μέχρι έναν γενικό καθαρισμό,
-            η προσέγγισή μας είναι πάντα οργανωμένη, με έμφαση στη λεπτομέρεια και στο τελικό αποτέλεσμα.
-          </p>
-          <p>
-            Στόχος μας είναι να χτίζουμε συνεργασίες, όχι απλά “ένα μεροκάματο”.
-          </p>
-        </div>
-
-        <div class="card">
-          <h4 style="margin:0 0 10px; font-size:18px;">Τα δυνατά μας σημεία</h4>
-          <ul class="list">
-            <li>
-              <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              Εξειδίκευση στον καθαρισμό βιτρινών
-            </li>
-            <li>
-              <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              Συνέπεια, επαγγελματική συμπεριφορά και σωστή εικόνα
-            </li>
-            <li>
-              <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              Γρήγορη εξυπηρέτηση και σωστή οργάνωση
-            </li>
-            <li>
-              <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              Καθαρισμός με στόχο το αποτέλεσμα (όχι “στο περίπου”)
-            </li>
-            <li>
-              <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              Δυνατότητα συνεργασιών και σταθερών πακέτων
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APP -->
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <h3>Η εφαρμογή μας: iCleanPro</h3>
-        <p>
-          Η νέα εφαρμογή θα είναι ο πιο γρήγορος τρόπος για να υποβάλετε αίτημα καθαρισμού και να επιλέξετε πακέτα/συνδρομές.
-        </p>
-      </div>
-
-      <div class="app-wrap">
-        <div class="card">
-          <h4 style="margin:0 0 10px; font-size:18px;">Όλα τα αιτήματα από το κινητό</h4>
-          <p style="margin:0 0 12px; color:var(--muted); font-size:14px;">
-            Μέσα από την <strong>iCleanPro</strong> ο πελάτης θα μπορεί να ζητά καθαρισμό χώρου,
-            να επιλέγει υπηρεσία, να οργανώνει την εξυπηρέτηση και να επιλέγει <strong>συνδρομητικά πλάνα</strong>
-            για σταθερή συνεργασία.
-          </p>
-
-          <div class="store-row">
-            <div class="store">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M5 3l13 9-13 9V3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              </svg>
-              Play Store <span>(σύντομα)</span>
-            </div>
-
-            <div class="store">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M16 13c.2 2.3 2 3 2 3s-1.5 4-4.2 4c-1.2 0-2-.7-3-.7s-1.8.7-3 .7C5 20 3 16.6 3 13c0-3 1.8-5 4-5 1.1 0 2 .7 3 .7s1.7-.7 3-.7c1 0 2 .4 2.8 1.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M14 3c-.8 1.2-1 2.7-.8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              iOS <span>(σύντομα)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h4 style="margin:0 0 10px; font-size:18px;">Τι θα περιλαμβάνει</h4>
-          <ul class="list">
-            <li><div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Υποβολή αιτήματος καθαρισμού σε λίγα δευτερόλεπτα</li>
-            <li><div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Επιλογή υπηρεσίας (βιτρίνα, σπίτι, Airbnb, γενικός κλπ.)</li>
-            <li><div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Συνδρομητικά πλάνα για σταθερούς καθαρισμούς</li>
-            <li><div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Οργάνωση και άμεση επικοινωνία</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <h3>Συχνές ερωτήσεις</h3>
-        <p>Μερικές ερωτήσεις που μας κάνουν συχνά, για να έχεις μια καθαρή εικόνα πριν επικοινωνήσεις.</p>
-      </div>
-
-      <details>
-        <summary>
-          Κάνετε μόνο βιτρίνες ή και γενικούς καθαρισμούς;
-          <span class="chev">⌄</span>
-        </summary>
-        <div class="faq-text">
-          Η βασική μας ειδίκευση είναι ο καθαρισμός βιτρινών, όμως αναλαμβάνουμε και γενικούς καθαρισμούς
-          σε σπίτια, καταστήματα, επαγγελματικούς χώρους, Airbnb και αποθήκες.
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Πώς μπορώ να ζητήσω καθαρισμό;
-          <span class="chev">⌄</span>
-        </summary>
-        <div class="faq-text">
-          Μπορείς να μας καλέσεις, να στείλεις μήνυμα στο WhatsApp ή να συμπληρώσεις τη φόρμα.
-          Σύντομα θα μπορείς να κάνεις όλα τα αιτήματα και μέσα από την εφαρμογή <strong>eClean Pro</strong>.
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Υπάρχουν σταθερά πακέτα ή συνδρομές;
-          <span class="chev">⌄</span>
-        </summary>
-        <div class="faq-text">
-          Ναι. Υπάρχει δυνατότητα σταθερής συνεργασίας (π.χ. εβδομαδιαίος/μηνιαίος καθαρισμός βιτρίνας ή χώρου).
-          Σύντομα τα συνδρομητικά πλάνα θα διατίθενται και μέσα από την εφαρμογή.
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Σε πόσο χρόνο απαντάτε;
-          <span class="chev">⌄</span>
-        </summary>
-        <div class="faq-text">
-          Στόχος μας είναι η άμεση εξυπηρέτηση. Συνήθως απαντάμε πολύ γρήγορα, ειδικά σε WhatsApp και κλήσεις.
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Τι χρειάζεστε για να δώσετε προσφορά;
-          <span class="chev">⌄</span>
-        </summary>
-        <div class="faq-text">
-          Συνήθως αρκεί να γνωρίζουμε τον τύπο χώρου, το μέγεθος και τι ακριβώς χρειάζεται (π.χ. βιτρίνα, γενικός,
-          καθαρισμός μετά από ανακαίνιση κλπ.). Αν χρειαστεί, ζητάμε και φωτογραφίες.
-        </div>
-      </details>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <div class="foot">
-      <div>© <span id="y"></span> iCleanPro – Professional Cleaning Services</div>
-      <div>
-        <a href="HTML.html" class="delete-link">
-          Διαγραφή Λογαριασμού
         </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#services">Υπηρεσίες</a>
+          <a href="#why">Γιατί εμάς</a>
+          <a href="#process">Διαδικασία</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Επικοινωνία</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-glass" href="https://wa.me/306940043938" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-primary" href="tel:+306940043938">Κάλεσε τώρα</a>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </header>
 
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
+  <main id="top">
+    <section class="hero">
+      <div class="blur-orb orb-1"></div>
+      <div class="blur-orb orb-2"></div>
 
-  document.querySelectorAll("details").forEach(d => {
-    d.addEventListener("toggle", () => {
-      const chev = d.querySelector(".chev");
-      if(!chev) return;
-      chev.style.transform = d.open ? "rotate(180deg)" : "rotate(0deg)";
-      chev.style.transition = "transform .18s ease";
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-card reveal">
+            <div class="eyebrow">
+              <span class="dot"></span>
+              Premium υπηρεσίες καθαρισμού με σύγχρονη αισθητική και επαγγελματικό standard
+            </div>
+
+            <h1>Το site που θα περίμενες από το κορυφαίο συνεργείο καθαρισμού.</h1>
+
+            <p class="hero-lead">
+              Η <strong>iCleanPro</strong> προσφέρει καθαρισμούς βιτρινών, επαγγελματικών χώρων, καταστημάτων, κατοικιών,
+              Airbnb και απαιτητικών εγκαταστάσεων με ταχύτητα, συνέπεια και αποτέλεσμα που ανεβάζει αμέσως την εικόνα
+              του χώρου. Όχι πρόχειρη δουλειά. Premium παρουσία, premium εξυπηρέτηση, premium αποτέλεσμα.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Ζήτησε προσφορά</a>
+              <a class="btn btn-glass" href="https://wa.me/306940043938" target="_blank" rel="noopener">Μήνυμα στο WhatsApp</a>
+              <a class="btn btn-glass" href="mailto:icleanpro40@gmail.com">Email</a>
+            </div>
+
+            <div class="trust-row">
+              <div class="metric">
+                <b>Premium</b>
+                <span>εικόνα σε κάθε επαφή με τον πελάτη</span>
+              </div>
+              <div class="metric">
+                <b>Fast</b>
+                <span>άμεση επικοινωνία και ταχεία εξυπηρέτηση</span>
+              </div>
+              <div class="metric">
+                <b>Detail</b>
+                <span>δουλειά με προσοχή στη λεπτομέρεια</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="showcase glass reveal">
+              <div class="phone-mock">
+                <div class="phone-inner">
+                  <div class="phone-top">
+                    <div class="phone-pill"></div>
+                    <div class="phone-title">iCleanPro Experience</div>
+                    <div class="phone-sub">Η εικόνα ενός σύγχρονου premium service</div>
+                  </div>
+                  <div class="clean-preview">
+                    <div class="preview-box">
+                      <div class="preview-top">
+                        <strong>Καθαρισμός βιτρίνας</strong>
+                        <span class="preview-tag">Top service</span>
+                      </div>
+                      <div class="preview-line" style="width:100%"></div>
+                      <div class="preview-line" style="width:82%"></div>
+                      <div class="preview-line" style="width:64%"></div>
+                    </div>
+                    <div class="preview-grid">
+                      <div class="preview-box">
+                        <strong>Airbnb</strong>
+                        <div class="preview-line" style="width:100%; margin-top:12px"></div>
+                        <div class="preview-line" style="width:72%"></div>
+                      </div>
+                      <div class="preview-box">
+                        <strong>Κατάστημα</strong>
+                        <div class="preview-line" style="width:100%; margin-top:12px"></div>
+                        <div class="preview-line" style="width:68%"></div>
+                      </div>
+                    </div>
+                    <div class="preview-box">
+                      <div class="preview-top">
+                        <strong>Συνδρομητικά πλάνα</strong>
+                        <span class="preview-tag">Soon</span>
+                      </div>
+                      <div class="preview-line" style="width:100%"></div>
+                      <div class="preview-line" style="width:78%"></div>
+                      <div class="preview-line" style="width:58%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-panel reveal" id="contact">
+              <h3>Στείλε αίτημα τώρα</h3>
+              <p>Συμπλήρωσε τη φόρμα και η iCleanPro θα επικοινωνήσει μαζί σου όσο πιο άμεσα γίνεται.</p>
+
+              <form action="https://formspree.io/f/xvzbglbe" method="POST">
+                <div class="grid-2">
+                  <input type="text" name="name" placeholder="Ονοματεπώνυμο" required />
+                  <input type="tel" name="phone" placeholder="Τηλέφωνο" />
+                </div>
+                <input type="email" name="email" placeholder="Email (προαιρετικό)" />
+                <textarea name="message" placeholder="Πες μας τι χρειάζεσαι: βιτρίνα, κατάστημα, κατοικία, Airbnb, γενικός καθαρισμός, συχνότητα, μέγεθος χώρου κλπ." required></textarea>
+                <button class="submit" type="submit">Αποστολή αιτήματος</button>
+              </form>
+
+              <p class="small-note">* Η αποστολή γίνεται μέσω email. Αν δεν δεις απάντηση, έλεγξε και Spam/Promotions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Services</span>
+            <h2>Υπηρεσίες που κάνουν τον χώρο να δείχνει αλλιώς.</h2>
+          </div>
+          <p>
+            Σχεδιασμένες για επαγγελματίες και ιδιώτες που θέλουν καθαρότητα, σοβαρή παρουσία και αποτέλεσμα που
+            φαίνεται αμέσως σε πελάτες, επισκέπτες και καθημερινή χρήση.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2"/><path d="M8 4v16M16 4v16M4 8h16M4 16h16" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Καθαρισμός βιτρινών</h3>
+            <p>Η πρώτη εικόνα μιας επιχείρησης πρέπει να είναι άψογη. Εξειδίκευση σε βιτρίνες με καθαρό, φωτεινό και πραγματικά επαγγελματικό αποτέλεσμα.</p>
+            <div class="service-foot">
+              <span class="chip">ιδανικό για retail</span>
+              <span class="chip">high-visibility service</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 21h14M7 21V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14" stroke="currentColor" stroke-width="2"/><path d="M10 9h4M10 13h4M10 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Καταστήματα & επαγγελματικοί χώροι</h3>
+            <p>Σωστή εικόνα, τάξη και καθαριότητα που στηρίζουν το brand μιας επιχείρησης και βελτιώνουν την εμπειρία πελάτη και προσωπικού.</p>
+            <div class="service-foot">
+              <span class="chip">business-ready</span>
+              <span class="chip">συνεργασίες</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10l8-6 8 6v10" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Κατοικίες & σπίτια</h3>
+            <p>Καθαρισμοί κατοικιών με οργανωμένη προσέγγιση, συνέπεια και έμφαση στην αίσθηση άνεσης, τάξης και φρεσκάδας σε κάθε χώρο.</p>
+            <div class="service-foot">
+              <span class="chip">residential care</span>
+              <span class="chip">με προσοχή</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M6 7v13h12V7M9 3h6v4H9V3Z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Airbnb & βραχυχρόνια μίσθωση</h3>
+            <p>Γρήγορη προετοιμασία καταλύματος με στόχο άμεση παράδοση, σωστή εικόνα και εμπειρία επισκέπτη που ανταποκρίνεται στις προσδοκίες.</p>
+            <div class="service-foot">
+              <span class="chip">turnover-ready</span>
+              <span class="chip">short-stay support</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18M6 12V5h12v7M8 21h8M10 21v-4h4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Αποθήκες & βοηθητικοί χώροι</h3>
+            <p>Οργάνωση, καθαρότητα και λειτουργικότητα σε χώρους που συχνά παραμελούνται, αλλά επηρεάζουν την καθημερινή λειτουργία κάθε επιχείρησης.</p>
+            <div class="service-foot">
+              <span class="chip">utility spaces</span>
+              <span class="chip">σωστή οργάνωση</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M6 8h12M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Γενικοί καθαρισμοί</h3>
+            <p>Για πιο απαιτητικές περιπτώσεις, με έμφαση σε βάθος, λεπτομέρεια και τελικό αποτέλεσμα που μεταμορφώνει ουσιαστικά τον χώρο.</p>
+            <div class="service-foot">
+              <span class="chip">deep clean feel</span>
+              <span class="chip">detail-first</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container">
+        <div class="premium-band">
+          <div class="feature-card reveal">
+            <span class="section-kicker">Why iCleanPro</span>
+            <h3>Η διαφορά δεν είναι μόνο στην καθαριότητα. Είναι στην συνολική εικόνα.</h3>
+            <p>
+              Η iCleanPro έχει στόχο να εκπέμπει σοβαρότητα, οργάνωση και ποιότητα σε κάθε επαφή. Από την πρώτη επικοινωνία
+              μέχρι το τελικό αποτέλεσμα, η εμπειρία πρέπει να δείχνει premium.
+            </p>
+
+            <div class="feature-list" style="margin-top:16px">
+              <div class="point">
+                <div class="point-badge">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <strong>Επαγγελματική παρουσία</strong>
+                  <p>Σωστή επικοινωνία, σωστή αισθητική και υπηρεσία που ταιριάζει σε σοβαρό brand.</p>
+                </div>
+              </div>
+              <div class="point">
+                <div class="point-badge">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <strong>Συνέπεια και λεπτομέρεια</strong>
+                  <p>Όχι βιαστική εκτέλεση. Καθαρισμός με ουσία, προσοχή και στόχο το πραγματικό αποτέλεσμα.</p>
+                </div>
+              </div>
+              <div class="point">
+                <div class="point-badge">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <strong>Ευελιξία για ιδιώτες και επιχειρήσεις</strong>
+                  <p>Από μία βιτρίνα μέχρι μόνιμη συνεργασία, με δυνατότητα σταθερών πλάνων εξυπηρέτησης.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial reveal">
+            <span class="section-kicker">Positioning</span>
+            <h3>Σαν να έγινε για την κορυφή της αγοράς.</h3>
+            <p>
+              Αυτή είναι η εικόνα που θέλει να βγάζει η iCleanPro: καθαριότητα, σύγχρονη αισθητική, υψηλό standard,
+              σταθερότητα και υπηρεσία που μπορεί να σταθεί δίπλα σε premium brands.
+            </p>
+
+            <div class="points-grid" style="margin-top:16px">
+              <div class="glass" style="border-radius:20px;padding:16px">
+                <strong style="display:block;font-size:18px;letter-spacing:-.03em">Clean</strong>
+                <p style="margin-top:6px">Οπτική καθαρότητα που φαίνεται άμεσα.</p>
+              </div>
+              <div class="glass" style="border-radius:20px;padding:16px">
+                <strong style="display:block;font-size:18px;letter-spacing:-.03em">Sharp</strong>
+                <p style="margin-top:6px">Σύγχρονη και σοβαρή παρουσία σε κάθε touchpoint.</p>
+              </div>
+              <div class="glass" style="border-radius:20px;padding:16px">
+                <strong style="display:block;font-size:18px;letter-spacing:-.03em">Reliable</strong>
+                <p style="margin-top:6px">Άμεση επικοινωνία και σταθερή ποιότητα υπηρεσίας.</p>
+              </div>
+              <div class="glass" style="border-radius:20px;padding:16px">
+                <strong style="display:block;font-size:18px;letter-spacing:-.03em">Premium</strong>
+                <p style="margin-top:6px">Αισθητική και positioning ανώτερου επιπέδου.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="stats-strip reveal">
+          <div class="stat-card">
+            <b>24/7</b>
+            <span>εύκολη επικοινωνία μέσω site, email και WhatsApp</span>
+          </div>
+          <div class="stat-card">
+            <b>1st Class</b>
+            <span>brand image και αισθητική που δείχνουν premium υπηρεσία</span>
+          </div>
+          <div class="stat-card">
+            <b>Fast Reply</b>
+            <span>γρήγορη ανταπόκριση για ιδιώτες και επαγγελματίες</span>
+          </div>
+          <div class="stat-card">
+            <b>Top Result</b>
+            <span>στόχος πάντα το αποτέλεσμα που φαίνεται καθαρά</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Process</span>
+            <h2>Απλή διαδικασία. Σοβαρό αποτέλεσμα.</h2>
+          </div>
+          <p>
+            Έτσι πρέπει να δουλεύει μια σύγχρονη υπηρεσία καθαρισμού: γρήγορα, ξεκάθαρα, οργανωμένα και χωρίς περιττή τριβή.
+          </p>
+        </div>
+
+        <div class="process">
+          <div class="step reveal">
+            <div class="step-no">01</div>
+            <h3>Επικοινωνείς</h3>
+            <p>Μέσα από τη φόρμα, το τηλέφωνο ή το WhatsApp, περιγράφεις τι χρειάζεσαι και τον τύπο του χώρου.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-no">02</div>
+            <h3>Καταγράφουμε την ανάγκη</h3>
+            <p>Εκτιμάμε σωστά το αίτημα, τη συχνότητα, το μέγεθος και το επίπεδο φροντίδας που χρειάζεται ο χώρος.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-no">03</div>
+            <h3>Δίνουμε λύση</h3>
+            <p>Προτείνεται η σωστή υπηρεσία ή συνεργασία, είτε πρόκειται για μεμονωμένο καθαρισμό είτε για σταθερό πλάνο.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-no">04</div>
+            <h3>Παραδίδουμε εικόνα επιπέδου</h3>
+            <p>Ο στόχος δεν είναι απλώς να “καθαριστεί”. Είναι να δείχνει φροντισμένο, σοβαρό και επαγγελματικό.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Future App</span>
+            <h2>Η εφαρμογή iCleanPro ετοιμάζεται.</h2>
+          </div>
+          <p>
+            Στόχος είναι ο πελάτης να μπορεί να υποβάλλει αίτημα καθαρισμού, να επιλέγει υπηρεσίες και να οργανώνει
+            σταθερή συνεργασία εύκολα από το κινητό του.
+          </p>
+        </div>
+
+        <div class="premium-band">
+          <div class="feature-card reveal">
+            <h3>Όλα από το κινητό, με σύγχρονη εμπειρία.</h3>
+            <p>
+              Η εφαρμογή iCleanPro θα λειτουργεί σαν ψηφιακή πύλη εξυπηρέτησης για τον πελάτη, με ευκολία, ταχύτητα και σωστή οργάνωση.
+            </p>
+            <div class="feature-list" style="margin-top:16px">
+              <div class="point">
+                <div class="point-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div><strong>Υποβολή αιτήματος σε λίγα δευτερόλεπτα</strong><p>Γρήγορη διαδικασία, χωρίς ταλαιπωρία.</p></div>
+              </div>
+              <div class="point">
+                <div class="point-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div><strong>Επιλογή υπηρεσίας ανάλογα με τον χώρο</strong><p>Βιτρίνα, κατοικία, επαγγελματικός χώρος, Airbnb και άλλα.</p></div>
+              </div>
+              <div class="point">
+                <div class="point-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div><strong>Συνδρομητικά πλάνα</strong><p>Για σταθερούς καθαρισμούς και μακροχρόνιες συνεργασίες.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <h3>Σύντομα διαθέσιμη</h3>
+            <p>Η εφαρμογή θα είναι διαθέσιμη μελλοντικά για γρήγορη και μοντέρνα εξυπηρέτηση.</p>
+            <div class="cta-actions">
+              <div class="btn btn-white">Google Play · σύντομα</div>
+              <div class="btn btn-white">App Store · σύντομα</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Social Proof Style</span>
+            <h2>Εικόνα premium. Εμπιστοσύνη premium.</h2>
+          </div>
+          <p>
+            Ένα premium site πρέπει να δείχνει σιγουριά, καθαρή ταυτότητα και υψηλό standard. Αυτή είναι ακριβώς η λογική αυτού του redesign.
+          </p>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial reveal">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+            </div>
+            <h3>Για επιχειρήσεις που προσέχουν την εικόνα τους</h3>
+            <p>Ιδανική παρουσίαση για brand που θέλει να δείχνει σοβαρότητα, οργάνωση και ποιοτική εξυπηρέτηση από το πρώτο δευτερόλεπτο.</p>
+          </article>
+
+          <article class="testimonial reveal">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+            </div>
+            <h3>Μοντέρνα αισθητική 2026</h3>
+            <p>Dark premium theme, glassmorphism, δυνατή τυπογραφία, καθαρή δομή και μεγάλη αίσθηση “high-end service”.</p>
+          </article>
+
+          <article class="testimonial reveal">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 7 .9-5 4.8 1.2 6.8L12 17.7 5.7 20.8 7 14 2 9.2l7-.9L12 2Z"/></svg>
+            </div>
+            <h3>Έτοιμο για σοβαρή πρώτη εντύπωση</h3>
+            <p>Το design είναι φτιαγμένο για να αυξάνει την αντίληψη αξίας της επιχείρησης και να κάνει τον πελάτη να νιώθει ότι μιλά με premium service.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">FAQ</span>
+            <h2>Συχνές ερωτήσεις</h2>
+          </div>
+          <p>Όλα όσα συνήθως θέλει να ξέρει ένας πελάτης πριν προχωρήσει σε επικοινωνία ή συνεργασία.</p>
+        </div>
+
+        <div class="faq-wrap">
+          <details class="faq-item reveal">
+            <summary>Κάνετε μόνο βιτρίνες ή και άλλους χώρους; <span class="chev">⌄</span></summary>
+            <div class="faq-answer">Η iCleanPro εξειδικεύεται σε βιτρίνες, αλλά αναλαμβάνει επίσης επαγγελματικούς χώρους, κατοικίες, Airbnb, αποθήκες και γενικούς καθαρισμούς.</div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Πώς μπορώ να ζητήσω προσφορά; <span class="chev">⌄</span></summary>
+            <div class="faq-answer">Μπορείς να στείλεις αίτημα από τη φόρμα, να καλέσεις απευθείας ή να στείλεις μήνυμα στο WhatsApp. Η διαδικασία έχει στηθεί ώστε να είναι γρήγορη και άμεση.</div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Υπάρχουν σταθερά πακέτα συνεργασίας; <span class="chev">⌄</span></summary>
+            <div class="faq-answer">Ναι, υπάρχει δυνατότητα για σταθερές συνεργασίες και επαναλαμβανόμενους καθαρισμούς, ειδικά για βιτρίνες, επαγγελματικούς χώρους και χώρους που χρειάζονται συνεχή φροντίδα.</div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Σε πόσο χρόνο απαντάτε; <span class="chev">⌄</span></summary>
+            <div class="faq-answer">Στόχος είναι η πολύ γρήγορη ανταπόκριση, ειδικά όταν η επικοινωνία γίνεται μέσω τηλεφώνου ή WhatsApp.</div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Τι στοιχεία χρειάζεστε για μια σωστή εκτίμηση; <span class="chev">⌄</span></summary>
+            <div class="faq-answer">Βοηθά να γνωρίζουμε τον τύπο χώρου, το μέγεθος, τη συχνότητα και τι ακριβώς χρειάζεται να καθαριστεί. Σε ορισμένες περιπτώσεις είναι χρήσιμες και φωτογραφίες.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <span class="section-kicker">Ready</span>
+            <h3>Θες το πιο επαγγελματικό πρώτο βήμα για τον χώρο σου;</h3>
+            <p>
+              Επικοινώνησε με την iCleanPro και ζήτησε άμεσα πληροφορίες ή προσφορά για καθαρισμό βιτρίνας, επαγγελματικού χώρου,
+              κατοικίας, Airbnb ή γενικό καθαρισμό.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="tel:+306940043938">Κλήση τώρα</a>
+              <a class="btn btn-glass" href="https://wa.me/306940043938" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn-glass" href="mailto:icleanpro40@gmail.com">Email</a>
+            </div>
+          </div>
+
+          <div class="glass" style="border-radius:24px;padding:18px">
+            <div class="contact-list">
+              <div>
+                <strong>Τηλέφωνο</strong>
+                <p><a href="tel:+306940043938">+30 694 004 3938</a></p>
+              </div>
+              <div>
+                <strong>WhatsApp</strong>
+                <p><a href="https://wa.me/306940043938" target="_blank" rel="noopener">Άμεσο μήνυμα</a></p>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <p><a href="mailto:icleanpro40@gmail.com">icleanpro40@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-card reveal">
+          <h3>iCleanPro</h3>
+          <p>
+            Premium Cleaning Services για βιτρίνες, επαγγελματικούς χώρους, κατοικίες, Airbnb και γενικούς καθαρισμούς.
+            Μοντέρνα εικόνα, επαγγελματική προσέγγιση και αποτέλεσμα υψηλού επιπέδου.
+          </p>
+        </div>
+
+        <div class="footer-card reveal">
+          <h3>Χρήσιμα links</h3>
+          <div class="footer-links">
+            <a href="#services">Υπηρεσίες</a>
+            <a href="#why">Γιατί εμάς</a>
+            <a href="#contact">Επικοινωνία</a>
+            <a href="delete-account.html" class="delete-link">Διαγραφή Λογαριασμού</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-mini">
+        <div>© <span id="year"></span> iCleanPro · Premium Cleaning Services</div>
+        <div>Designed for a top-tier modern cleaning brand.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('details').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        const chev = item.querySelector('.chev');
+        if (!chev) return;
+        chev.style.transform = item.open ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
     });
-  });
-</script>
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
